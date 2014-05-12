@@ -1,8 +1,8 @@
-/* waitMe - 29.04.14 */
+/* waitMe - 12.05.14 */
 .waitMe_container {position:relative}
-body.waitMe_container {position:absolute;height:100%}
+body.waitMe_container {position:absolute;width:100%;height:100%}
 .waitMe_container .waitMe {position:absolute;top:0;left:0;right:0;bottom:0;z-index:9989;text-align:center}
-.waitMe_container * {font-family:sans-serif;font-size:14px;font-weight:initial;font-style:initial;color:initial;text-decoration:initial;text-transform:initial;padding:initial;margin:initial}
+.waitMe_container .waitMe * {font-family:sans-serif;font-size:14px;font-weight:initial;font-style:initial;color:initial;text-decoration:initial;text-transform:initial;padding:initial;margin:initial}
 .waitMe_container .waitMe .waitMe_content {position:absolute;width:100%;top:50%}
 .waitMe_container .waitMe .waitMe_progress {position:relative}
 .waitMe_container .waitMe .waitMe_progress > div {-webkit-animation-fill-mode:both;animation-fill-mode:both;display:inline-block}
@@ -118,7 +118,7 @@ width:40px;height:40px;margin:auto;
 animation: orbit_rotate 2.0s infinite linear;
 }
 .waitMe_container .waitMe_progress.orbit > div {
-width:20px;height:20px;border-radius:50%;top:0;position:absolute;
+width:50%;height:50%;border-radius:50%;top:0;position:absolute;
 -webkit-animation: orbit 2.0s infinite ease-in-out;
 animation: orbit 2.0s infinite ease-in-out;
 }
@@ -158,7 +158,7 @@ animation-delay: -1.0s;
 /* roundBounce */
 .waitMe_container .waitMe_progress.roundBounce {width:60px;height:60px;margin:auto}
 .waitMe_container .waitMe_progress.roundBounce > div {
-width:12px;height:12px;border-radius:50%;position:absolute;
+width:20%;height:20%;border-radius:50%;position:absolute;
 -webkit-animation: roundBounce 1.2s infinite ease-in-out;
 animation: roundBounce 1.2s infinite ease-in-out;
 }
@@ -166,10 +166,10 @@ animation: roundBounce 1.2s infinite ease-in-out;
 .waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem2 {top:0;right:0}
 .waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem3 {bottom:0;right:0}
 .waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem4 {bottom:0;left:0}
-.waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem5 {top:-9%;left:50%;margin-top:-6px;margin-left:-6px}
-.waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem6 {top:50%;right:-9%;margin-top:-6px;margin-right:-6px}
-.waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem7 {bottom:-9%;left:50%;margin-bottom:-6px;margin-left:-6px}
-.waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem8 {top:50%;left:-9%;margin-top:-6px;margin-left:-6px}
+.waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem5 {top:-9%;left:50%;margin-top:-10%;margin-left:-10%}
+.waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem6 {top:50%;right:-9%;margin-top:-10%;margin-right:-10%}
+.waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem7 {bottom:-9%;left:50%;margin-bottom:-10%;margin-left:-10%}
+.waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem8 {top:50%;left:-9%;margin-top:-10%;margin-left:-10%}
 .waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem9 {top:0;right:0}
 .waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem10 {bottom:0;right:0}
 .waitMe_container .waitMe_progress.roundBounce .waitMe_progress_elem11 {bottom:0;left:0}
@@ -244,7 +244,7 @@ width:40px;height:40px;opacity:0;position:absolute;margin:auto;left:0;right:0;
 transform: rotate(225deg);
 animation: win8 5.5s infinite;
 }
-.waitMe_container .waitMe_progress.win8 > div > div {width:6px;height:6px;border-radius:50%;position:absolute;margin:-5px}
+.waitMe_container .waitMe_progress.win8 > div > div {width:15%;height:15%;border-radius:50%;position:absolute;margin:-12.5%}
 .waitMe_container .waitMe_progress.win8 .waitMe_progress_elem2 {
 -webkit-animation-delay: 0.24s;
 animation-delay: 0.24s;
@@ -338,11 +338,11 @@ animation-delay: 0.96s;
 /* win8_linear */
 .waitMe_container .waitMe_progress.win8_linear {margin:auto;width:150px;height:6px}
 .waitMe_container .waitMe_progress.win8_linear > div {
-left:0;opacity:0;position:absolute;
+width:100%;height:100%;left:0;opacity:0;position:absolute;
 -webkit-animation: win8_linear 3s infinite;
 animation: win8_linear 3s infinite;
 }
-.waitMe_container .waitMe_progress.win8_linear > div > div {width:6px;height:6px;border-radius:50%}
+.waitMe_container .waitMe_progress.win8_linear > div > div {width:4%;height:100%;border-radius:50%}
 .waitMe_container .waitMe_progress.win8_linear .waitMe_progress_elem2 {
 -webkit-animation-delay: 0.3s;
 animation-delay: 0.3s;
@@ -366,17 +366,17 @@ animation-delay: 1.2s;
 	} 
   10% {
 		opacity:1;
-		-webkit-transform: translateX(50px);
+		-webkit-transform: translateX(33.333%);
 		-webkit-animation-timing-function: linear;
 	}
   50% {
 		opacity:1;
-		-webkit-transform: translateX(80px);
+		-webkit-transform: translateX(53.333%);
 		-webkit-animation-timing-function: ease-in-out;
 	}
   60% {
 		opacity:0;
-		-webkit-transform: translateX(130px);
+		-webkit-transform: translateX(86.666%);
 	}
 }
 @keyframes win8_linear {
@@ -386,17 +386,17 @@ animation-delay: 1.2s;
 	} 
   10% {
 		opacity:1;
-		transform: translateX(50px);
+		transform: translateX(33.333%);
 		animation-timing-function: linear;
 	}
   50% {
 		opacity:1;
-		transform: translateX(80px);
+		transform: translateX(53.333%);
 		animation-timing-function: ease-in-out;
 	}
   60% {
 		opacity:0;
-		transform: translateX(130px);
+		transform: translateX(86.666%);
 	}
 }
 
@@ -520,22 +520,50 @@ transform: scale(0.7);
 	animation-delay:0.65s;
 }
 @-webkit-keyframes facebook {
-	0%{
+	0% {
 		-webkit-transform:scale(1.2);
 		opacity:1;
 	}
-	100%{
+	100% {
 		-webkit-transform:scale(0.7);
 		opacity:0.1;
 	}
 }
 @keyframes facebook {
-	0%{
+	0% {
 		transform:scale(1.2);
 		opacity:1;
-		}
-	100%{
+	}
+	100% {
 		transform:scale(0.7);
 		opacity:0.1;
+	}
+}
+
+
+/* rotation */
+.waitMe_container .waitMe_progress.rotation > div {
+width:60px;height:60px;margin:auto;border-radius:100%;
+border-width:6px;border-style:solid;
+border-left-color:transparent!important;
+border-right-color:transparent!important;
+border-bottom-color:transparent!important;
+-webkit-animation: rotation 1s infinite linear;
+animation: rotation 1s infinite linear;
+}
+@-webkit-keyframes rotation {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
 	}
 }
