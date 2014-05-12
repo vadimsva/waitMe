@@ -1,4 +1,4 @@
-/* waitMe - 29.04.14 */
+/* waitMe - 12.05.14 */
 (function($) {
 	$.fn.waitMe = function(method) {
 		return this.each(function() {
@@ -9,8 +9,11 @@
 			effectObj,
 			effectElemCount,
 			createSubElem = false,
+			specificAttr = 'background-color',
 			effectElemHTML = '',
 			waitMeObj,
+			containerSize,
+			elemSize,
 			_options;
 		
 			var methods = {
@@ -19,60 +22,91 @@
 						effect: 'bounce',
 						text: '',
 						bg: 'rgba(255,255,255,0.7)',
-						color: '#000'
+						color: '#000',
+						sizeW: '',
+						sizeH: ''
 					};
 					_options = $.extend(_defaults, method);
-
+					
 					_init();
 					function _init() {
 					
-						waitMeObj = $('<div class="' + elemClass + '" style="background:' + _options.bg + '"></div>');
-						
+						waitMeObj = $('<div class="' + elemClass + '"></div>');
+
 						switch (_options.effect) {
 							case 'none':
 								effectElemCount = 0;
 							break;
 							case 'bounce':
 								effectElemCount = 3;
+								containerSize = '';
+								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
 							break;
 							case 'rotateplane':
 								effectElemCount = 1;
+								containerSize = '';
+								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
 							break;
 							case 'stretch':
 								effectElemCount = 5;
+								containerSize = '';
+								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
 							break;
 							case 'orbit':
 								effectElemCount = 2;
+								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = '';
 							break;
 							case 'roundBounce':
 								effectElemCount = 12;
+								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = '';
 							break;
 							case 'win8':
 								effectElemCount = 5;
 								createSubElem = true;
+								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
 							break;
 							case 'win8_linear':
 								effectElemCount = 5;
 								createSubElem = true;
+								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = '';
 							break;
 							case 'ios':
 								effectElemCount = 12;
+								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = '';
 							break;
 							case 'facebook':
 								effectElemCount = 3;
+								containerSize = '';
+								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
 							break;
+							case 'rotation':
+								effectElemCount = 1;
+								specificAttr = 'border-color';
+								containerSize = '';
+								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+							break;
+						}
+						
+						if (_options.sizeW == '' && _options.sizeH == '') {
+							elemSize = '';
+							containerSize = '';
 						}
 						
 						if (effectElemCount > 0) {
 							effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '"></div>');
 							for (var i = 1; i <= effectElemCount; ++i) {
 								if (createSubElem) {
-									effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '"><div style="background:' + _options.color +'"></div></div>';
+									effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + elemSize + '"><div style="' + specificAttr +':' + _options.color +'"></div></div>';
 								} else {
-									effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="background:' + _options.color +'"></div>';
+									effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + specificAttr + ':' + _options.color +';' + elemSize + '"></div>';
 								}
 							}
-							effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '">' + effectElemHTML + '</div>');
+							effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '" style="' + containerSize + '">' + effectElemHTML + '</div>');
 						}
 						
 						if (_options.text) {
@@ -89,7 +123,9 @@
 							elem = $('body');
 						}
 						elem.addClass(elemClass + '_container').append(waitMeObj);
+						elem.find('> .' + elemClass).css({background: _options.bg});
 						elem.find('.' + elemClass + '_content').css({marginTop: - elem.find('.' + elemClass + '_content').outerHeight() / 2 + 'px'});
+
 					}
 					
 				},
