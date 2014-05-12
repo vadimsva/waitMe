@@ -46,14 +46,14 @@ Use: <code>$(container).waitMe("hide");</code><br>
 <br>
 
 <h5>Notes</h5>
-For sizeW and sizeH, default sizes is:
-bounce - sizeW: '20px', sizeH: '20px'<br>
-rotateplane - sizeW: '30px', sizeH: '30px'<br>
-stretch - sizeW: '8px', sizeH: '60px'<br>
-orbit - sizeW: '40px', sizeH: '40px'<br>
-roundBounce - sizeW: '60px', sizeH: '60px'<br>
-win8 - sizeW: '40px', sizeH: '40px'<br>
-win8_linear - sizeW: '150px', sizeH: '6px'<br>
-ios - sizeW: '40px', sizeH: '40px'<br>
-facebook - sizeW: '6px', sizeH: '25px'<br>
-rotation - sizeW: '60px', sizeH: '60px'<br>
+For <code>sizeW</code> and <code>sizeH</code>, default sizes is:<br>
+<code>bounce</code> - <code>sizeW: '20px'</code>, <code>sizeH: '20px'</code><br>
+<code>rotateplane</code> - <code>sizeW: '30px'</code>, <code>sizeH: '30px'</code><br>
+<code>stretch</code> - <code>sizeW: '8px'</code>, <code>sizeH: '60px'</code><br>
+<code>orbit</code> - <code>sizeW: '40px'</code>, <code>sizeH: '40px'</code><br>
+<code>roundBounce</code> - <code>sizeW: '60px'</code>, <code>sizeH: '60px'</code><br>
+<code>win8</code> - <code>sizeW: '40px'</code>, <code>sizeH: '40px'</code><br>
+<code>win8_linear</code> - <code>sizeW: '150px'</code>, <code>sizeH: '6px'</code><br>
+<code>ios</code> - <code>sizeW: '40px'</code>, <code>sizeH: '40px'</code><br>
+<code>facebook</code> - <code>sizeW: '6px'</code>, <code>sizeH: '25px'</code><br>
+<code>rotation</code> - <code>sizeW: '60px'</code>, <code>sizeH: '60px'</code><br>
