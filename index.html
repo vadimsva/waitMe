@@ -52,7 +52,7 @@ body {background:#fafafa}
 <div id="page">
 
 <div id="copyrightBlock">
-	<div id="version" title="Current version/date">29.04.14</div>
+	<div id="version" title="Current version/date">12.05.14</div>
 	<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 </div>
 
@@ -82,6 +82,11 @@ body {background:#fafafa}
 				<option>win8</option>
 				<option>win8_linear</option>
 				<option>ios</option>
+				<option>facebook</option>
+				<option>rotation</option>
+				
+				<option>circle</option>
+				<option>rotate</option>
 			</select>
 			<button id="waitMe_ex_close">STOP</button>
 		</div>
@@ -94,7 +99,9 @@ body {background:#fafafa}
 			<p class="tab"><span class="key">effect</span> : <span class="val">'bounce'</span>,</p>
 			<p class="tab"><span class="key">text</span> : <span class="val">''</span>,</p>
 			<p class="tab"><span class="key">bg</span> : <span class="val">rgba(255,255,255,0.7)</span>,</p>
-			<p class="tab"><span class="key">color</span> : <span class="val">#000</span></p>
+			<p class="tab"><span class="key">color</span> : <span class="val">#000</span>,</p>
+			<p class="tab"><span class="key">sizeW</span> : <span class="val">''</span>,</p>
+			<p class="tab"><span class="key">sizeH</span> : <span class="val">''</span></p>
 			<p>}<span class="text">)</span>;</p>
 		</code></pre></div>
 	</div>
@@ -102,7 +109,7 @@ body {background:#fafafa}
 
 </div>	
 
-<script src="http://cdn.jsdelivr.net/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
 <script src="waitMe.js"></script>
 <script>
 $(function(){
@@ -118,6 +125,7 @@ $(function(){
 
 	$('#waitMe_ex_effect').change(function(){
 		current_effect = $(this).val();
+		run_waitMe(current_effect);
 	});
 	
 	$('#waitMe_ex_effect').click(function(){
@@ -127,9 +135,11 @@ $(function(){
 	function run_waitMe(effect){
 		$('#container > form').waitMe({
 			effect: effect,
-			text: 'Please waiting...',
+			text: 'Please wait...',
 			bg: 'rgba(255,255,255,0.7)',
-			color:'#000'
+			color:'#000',
+			sizeW:'',
+			sizeH:''
 		});
 	}
 	
