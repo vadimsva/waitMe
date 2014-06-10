@@ -1,4 +1,8 @@
-/* waitMe - 12.05.14 */
+/*
+waitMe - 1.02 [10.06.14]
+Author: vadimsva
+Github: https://github.com/vadimsva/waitMe
+*/
 (function($) {
 	$.fn.waitMe = function(method) {
 		return this.each(function() {
@@ -10,6 +14,7 @@
 			effectElemCount,
 			createSubElem = false,
 			specificAttr = 'background-color',
+			addStyle = '',
 			effectElemHTML = '',
 			waitMeObj,
 			containerSize,
@@ -90,11 +95,20 @@
 								containerSize = '';
 								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
 							break;
+							case 'timer':
+								effectElemCount = 2;
+								addStyle = 'border-color:' + _options.color;
+								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = '';
+							break;
 						}
 						
 						if (_options.sizeW == '' && _options.sizeH == '') {
 							elemSize = '';
 							containerSize = '';
+						}
+						if (containerSize != '' && addStyle != '') {
+							addStyle = ';' + addStyle;
 						}
 						
 						if (effectElemCount > 0) {
@@ -106,7 +120,7 @@
 									effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + specificAttr + ':' + _options.color +';' + elemSize + '"></div>';
 								}
 							}
-							effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '" style="' + containerSize + '">' + effectElemHTML + '</div>');
+							effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '" style="' + containerSize + addStyle + '">' + effectElemHTML + '</div>');
 						}
 						
 						if (_options.text) {
