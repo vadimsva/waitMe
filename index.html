@@ -8,12 +8,13 @@
 <style>
 * {margin:0;font-family:sans-serif;outline:0}
 body {background:#fafafa}
-#page {background:#fff;border:1px solid #ccc;box-shadow:0 0 0 3px #eee;margin:40px auto;width:40%;min-width:800px;min-height:500px;border-radius:3px;padding:0 0 30px;position:relative}
+#page {background:#fff;border:1px solid #ccc;box-shadow:0 0 0 3px #eee;margin:40px auto;width:40%;min-width:800px;min-height:500px;border-radius:3px;position:relative}
 #page h2 {margin:20px;color:#444}
 #copyrightBlock {position:absolute;top:10px;right:10px}
 #version, #gitHubLink {color:#fff;background:#4081BE;display:inline-block;padding:0 6px;border-radius:3px;text-decoration:none;font-size:12px;line-height:20px;margin-left:1px}
 #gitHubLink:hover {background:#3772A8}
 #version {background:#777}
+#version span {margin-left:10px;color:#ccc}
 
 .exampleContainer {border:1px solid #ddd;border-left:0;border-right:0}
 .exampleContainer .exampleLive {padding:20px;background:#fafafa}
@@ -52,7 +53,7 @@ body {background:#fafafa}
 <div id="page">
 
 <div id="copyrightBlock">
-	<div id="version" title="Current version/date">12.05.14</div>
+	<div id="version" title="Current version/date">1.02<span>[10.06.14]</span></div>
 	<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 </div>
 
@@ -84,6 +85,7 @@ body {background:#fafafa}
 				<option>ios</option>
 				<option>facebook</option>
 				<option>rotation</option>
+				<option>timer</option>
 			</select>
 			<button id="waitMe_ex_close">STOP</button>
 		</div>
@@ -104,7 +106,7 @@ body {background:#fafafa}
 	</div>
 	
 
-</div>	
+</div>
 
 <script src="http://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
 <script src="waitMe.js"></script>
