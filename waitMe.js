@@ -1,5 +1,5 @@
 /*
-waitMe - 1.02 [10.06.14]
+waitMe - 1.03 [23.09.14]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -37,6 +37,7 @@ Github: https://github.com/vadimsva/waitMe
 					function _init() {
 					
 						waitMeObj = $('<div class="' + elemClass + '"></div>');
+						var size = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
 
 						switch (_options.effect) {
 							case 'none':
@@ -45,61 +46,67 @@ Github: https://github.com/vadimsva/waitMe
 							case 'bounce':
 								effectElemCount = 3;
 								containerSize = '';
-								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = size;
 							break;
 							case 'rotateplane':
 								effectElemCount = 1;
 								containerSize = '';
-								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = size;
 							break;
 							case 'stretch':
 								effectElemCount = 5;
 								containerSize = '';
-								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = size;
 							break;
 							case 'orbit':
 								effectElemCount = 2;
-								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								containerSize = size;
 								elemSize = '';
 							break;
 							case 'roundBounce':
 								effectElemCount = 12;
-								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								containerSize = size;
 								elemSize = '';
 							break;
 							case 'win8':
 								effectElemCount = 5;
 								createSubElem = true;
-								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
-								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								containerSize = size;
+								elemSize = size;
 							break;
 							case 'win8_linear':
 								effectElemCount = 5;
 								createSubElem = true;
-								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								containerSize = size;
 								elemSize = '';
 							break;
 							case 'ios':
 								effectElemCount = 12;
-								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								containerSize = size;
 								elemSize = '';
 							break;
 							case 'facebook':
 								effectElemCount = 3;
 								containerSize = '';
-								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = size;
 							break;
 							case 'rotation':
 								effectElemCount = 1;
 								specificAttr = 'border-color';
 								containerSize = '';
-								elemSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								elemSize = size;
 							break;
 							case 'timer':
 								effectElemCount = 2;
 								addStyle = 'border-color:' + _options.color;
-								containerSize = 'width:' + _options.sizeW + ';height:' + _options.sizeH;
+								containerSize = size;
 								elemSize = '';
+							break;
+							case 'pulse':
+								effectElemCount = 1;
+								specificAttr = 'border-color';
+								containerSize = '';
+								elemSize = size;
 							break;
 						}
 						
