@@ -1,5 +1,5 @@
 /*
-waitMe - 1.02 [10.06.14]
+waitMe - 1.03 [23.09.14]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -547,8 +547,7 @@ transform: scale(0.7);
 
 /* rotation */
 .waitMe_container .waitMe_progress.rotation > div {
-width:60px;height:60px;margin:auto;border-radius:100%;
-border-width:6px;border-style:solid;
+width:60px;height:60px;margin:auto;border-radius:100%;border-width:6px;border-style:solid;
 border-left-color:transparent!important;
 border-right-color:transparent!important;
 border-bottom-color:transparent!important;
@@ -574,14 +573,7 @@ animation: rotation 1s infinite linear;
 
 
 /* timer */
-.waitMe_container .waitMe_progress.timer {
-width:40px;height:40px;margin:auto;
-border-width:4px;border-style:solid;
-border-radius:50%;
-box-sizing:border-box;
-position:relative;
-text-indent:-9999px;
-}
+.waitMe_container .waitMe_progress.timer {width:40px;height:40px;margin:auto;border-width:4px;border-style:solid;border-radius:50%;box-sizing:border-box;position:relative;text-indent:-9999px}
 .waitMe_container .waitMe_progress.timer > .waitMe_progress_elem1 {
 border-radius:3px;position:absolute;width:4px;height:48%;left:50%;top:50%;margin-left:-2px;margin-top:-2px;
 -webkit-animation: timer 1250ms infinite linear;
@@ -611,4 +603,40 @@ transform-origin: 2px 2px;
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+/* pulse */
+.waitMe_container .waitMe_progress.pulse {
+width:30px;height:30px;margin:auto;border-width:3px;border-style:solid;border-radius:50%;position:relative;opacity:0;
+-webkit-animation: pulsate 1s ease-out;
+animation: pulsate 1s ease-out;
+-webkit-animation-iteration-count:infinite;
+animation-iteration-count:infinite;
+}
+@-webkit-keyframes pulsate {
+	0% {
+		-webkit-transform:scale(.1);
+		opacity: 0.0;
+	}
+	50% {
+		opacity:1;
+	}
+	100% {
+		-webkit-transform:scale(1.2);
+		opacity:0;
+	}
+}
+@keyframes pulsate {
+	0% {
+		transform:scale(.1);
+		opacity: 0.0;
+	}
+	50% {
+		opacity:1;
+	}
+	100% {
+		transform:scale(1.2);
+		opacity:0;
+	}
 }
