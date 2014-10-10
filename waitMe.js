@@ -1,5 +1,5 @@
 /*
-waitMe - 1.03 [23.09.14]
+waitMe - 1.04 [10.10.14]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -105,6 +105,11 @@ Github: https://github.com/vadimsva/waitMe
 							case 'pulse':
 								effectElemCount = 1;
 								specificAttr = 'border-color';
+								containerSize = '';
+								elemSize = size;
+							break;
+							case 'progressBar':
+								effectElemCount = 1;
 								containerSize = '';
 								elemSize = size;
 							break;
