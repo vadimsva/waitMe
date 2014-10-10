@@ -18,10 +18,11 @@ body {background:#fafafa}
 
 .exampleContainer {border:1px solid #ddd;border-left:0;border-right:0}
 .exampleContainer .exampleLive {padding:20px;background:#fafafa}
-.exampleContainer .exampleLive .exampleLiveTitle {color:#666;font-size:13px;padding-bottom:10px;margin-right:10%}
+.exampleContainer .exampleLive .exampleLiveTitle {color:#666;font-size:13px;padding-bottom:10px}
 .exampleContainer .exampleLive > button {padding:6px 12px;cursor:pointer;background:#4081BE;border:0;color:#fff;border-radius:3px;text-transform:uppercase;font-weight:bold;font-size:13px}
 .exampleContainer .exampleLive > button:hover {background:#3772A8}
 .exampleContainer .exampleCode {background:#2b2f3b;padding:20px}
+.exampleContainer .exampleCode pre {line-height:0}
 .exampleContainer .exampleCode code {white-space:initial}
 .exampleContainer .exampleCode code * {font-family:consolas;font-size:13px}
 .exampleContainer .exampleCode code > p {line-height:20px;color:#7993ad}
@@ -36,15 +37,14 @@ body {background:#fafafa}
 .exampleContainer .exampleCode code .var2 {color:#b297e9}
 
 #container {padding:30px}
-#container form {margin:0 30%}
+#container form {margin:0 30%;text-align:center}
 #container form * {font-size:14px}
-#container form > div {padding-bottom:5px}
+#container form > label {display:block;padding-bottom:5px;text-align:left}
 #container form > input {width:100%;padding:6px 12px;margin-bottom:15px;box-sizing:border-box;-moz-box-sizing:border-box}
 #container form > button {padding:6px 12px;margin-bottom:15px}
 #controlContainer {padding-top:50px;text-align:center}
 #controlContainer div {padding-bottom:10px}
 #controlContainer #waitMe_ex_close {margin-left:20px}
-
 </style>
 <link type="text/css" rel="stylesheet" href="waitMe.css">
 </head>
@@ -53,7 +53,7 @@ body {background:#fafafa}
 <div id="page">
 
 <div id="copyrightBlock">
-	<div id="version" title="Current version/date">1.03<span>[23.09.14]</span></div>
+	<div id="version" title="Current version/date">1.04<span>[10.10.14]</span></div>
 	<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 </div>
 
@@ -61,17 +61,17 @@ body {background:#fafafa}
 	
 	<div id="container">
 		<form>
-			<div>Name</div>
+			<label>Name</label>
 			<input type="text">
-			<div>Email</div>
+			<label>Email</label>
 			<input type="text">
-			<div>Phone</div>
+			<label>Phone</label>
 			<input type="text">
 			<button type="button" id="waitMe_ex">Submit</button>
 		</form>
 		
 		<div id="controlContainer">
-			<div>To start click Submit button.</div>
+			<div>To start click Submit button</div>
 			Effect
 			<select id="waitMe_ex_effect">
 				<option>none</option>
@@ -87,6 +87,7 @@ body {background:#fafafa}
 				<option>rotation</option>
 				<option>timer</option>
 				<option>pulse</option>
+				<option>progressBar</option>
 			</select>
 			<button id="waitMe_ex_close">STOP</button>
 		</div>
