@@ -53,7 +53,7 @@ body {background:#fafafa}
 <div id="page">
 
 <div id="copyrightBlock">
-	<div id="version" title="Current version/date">1.04<span>[10.10.14]</span></div>
+	<div id="version" title="Current version/date">1.05<span>[07.11.14]</span></div>
 	<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 </div>
 
@@ -88,6 +88,7 @@ body {background:#fafafa}
 				<option>timer</option>
 				<option>pulse</option>
 				<option>progressBar</option>
+				<option>bouncePulse</option>
 			</select>
 			<button id="waitMe_ex_close">STOP</button>
 		</div>
@@ -106,16 +107,15 @@ body {background:#fafafa}
 			<p>}<span class="text">)</span>;</p>
 		</code></pre></div>
 	</div>
-	
 
 </div>
 
-<script src="http://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js"></script>
 <script src="waitMe.js"></script>
 <script>
 $(function(){
 
-	var current_effect = 'bounce';
+	var current_effect = $('#waitMe_ex_effect').val();
 
 	$('#waitMe_ex').click(function(){
 		run_waitMe(current_effect);
