@@ -1,5 +1,5 @@
 /*
-waitMe - 1.04 [10.10.14]
+waitMe - 1.05 [07.11.14]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -110,6 +110,11 @@ Github: https://github.com/vadimsva/waitMe
 							break;
 							case 'progressBar':
 								effectElemCount = 1;
+								containerSize = '';
+								elemSize = size;
+							break;
+							case 'bouncePulse':
+								effectElemCount = 3;
 								containerSize = '';
 								elemSize = size;
 							break;
