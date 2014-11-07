@@ -1,10 +1,10 @@
 /*
-waitMe - 1.04 [10.10.14]
+waitMe - 1.05 [07.11.14]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
 .waitMe_container {position:relative}
-body.waitMe_container {position:absolute;width:100%;height:100%}
+body.waitMe_container {position:fixed;width:100%;height:100%}
 .waitMe_container .waitMe {position:absolute;top:0;left:0;right:0;bottom:0;z-index:9989;text-align:center}
 .waitMe_container .waitMe * {font-family:sans-serif;font-size:14px;font-weight:initial;font-style:initial;color:initial;text-decoration:initial;text-transform:initial;padding:initial;margin:initial}
 .waitMe_container .waitMe .waitMe_content {position:absolute;width:100%;top:50%}
@@ -672,4 +672,37 @@ background-image: linear-gradient(-45deg, rgba(240,240,240,0.4) 25%, transparent
   100% {
   	background-position:50px 50px;
   }
+}
+
+
+/* bouncePulse */
+.waitMe_container .waitMe_progress.bouncePulse > div {
+width:20px;height:20px;margin-right:1%;display:inline-block;border-radius:50%;
+-webkit-animation: bouncePulse 1.4s infinite ease-in-out;
+animation: bouncePulse 1.4s infinite ease-in-out;
+}
+.waitMe_container .waitMe_progress.bouncePulse > .waitMe_progress_elem1,
+.waitMe_container .waitMe_progress.bouncePulse > .waitMe_progress_elem3 {
+-webkit-animation-delay: 0.3s;
+animation-delay: 0.3s;
+}
+.waitMe_container .waitMe_progress.bouncePulse > .waitMe_progress_elem2 {
+-webkit-animation-delay: 0.1s;
+animation-delay: 0.1s;
+}
+@-webkit-keyframes bouncePulse {
+	0%, 90%, 100% {
+		-webkit-transform: rotate(45deg) scaleX(0.5) scaleY(0.5);
+	}
+	45% {
+		-webkit-transform: rotate(45deg) scaleX(1) scaleY(1);
+	}
+}
+@keyframes bouncePulse {
+	0%, 90%, 100% {
+		transform: rotate(45deg) scaleX(0.5) scaleY(0.5);
+	}
+	45% {
+		transform: rotate(45deg) scaleX(1) scaleY(1);
+	}
 }
