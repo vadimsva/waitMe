@@ -7,25 +7,26 @@
 <title>waitMe</title>
 <style>
 * {margin:0;font-family:sans-serif;outline:0}
-body {background:#fafafa}
-#page {background:#fff;border:1px solid #ccc;box-shadow:0 0 0 3px #eee;margin:40px auto;width:40%;min-width:800px;min-height:500px;border-radius:3px;position:relative}
-#page h2 {margin:20px;color:#444}
-#copyrightBlock {position:absolute;top:10px;right:10px}
-#version, #gitHubLink {color:#fff;background:#4081BE;display:inline-block;padding:0 6px;border-radius:3px;text-decoration:none;font-size:12px;line-height:20px;margin-left:1px}
+body {background:#f1f1f1}
+#page {background:#fff;border:1px solid #ccc;margin:60px auto;width:40%;min-width:800px;min-height:500px;border-radius:3px;position:relative;box-sizing:border-box}
+#page h2 {margin:20px;color:#444;margin-top:120px}
+#page #copyrightBlock + h2 {margin-top:20px}
+#copyrightBlock {position:absolute;top:-40px;right:0}
+#version, #gitHubLink {color:#fff;background:#4081BE;display:inline-block;padding:0 10px;border-radius:3px;text-decoration:none;font-size:12px;line-height:24px;margin-left:1px}
 #gitHubLink:hover {background:#3772A8}
-#version {background:#777}
-#version span {margin-left:10px;color:#ccc}
+#version {background:transparent;color:#555;font-weight:bold}
+#version span {margin-left:10px;color:#999}
 
-.exampleContainer {border:1px solid #ddd;border-left:0;border-right:0}
-.exampleContainer .exampleLive {padding:20px;background:#fafafa}
+.exampleContainer {}
+.exampleContainer .exampleLive {border-top:1px solid #ddd;padding:20px;background:#fafafa}
 .exampleContainer .exampleLive .exampleLiveTitle {color:#666;font-size:13px;padding-bottom:10px}
-.exampleContainer .exampleLive > button {padding:6px 12px;cursor:pointer;background:#4081BE;border:0;color:#fff;border-radius:3px;text-transform:uppercase;font-weight:bold;font-size:13px}
+.exampleContainer .exampleLive > button {padding:6px 12px;cursor:pointer;background:#4081BE;border:0;color:#fff;border-radius:3px;text-transform:uppercase;font-weight:bold;font-size:13px;line-height:20px}
 .exampleContainer .exampleLive > button:hover {background:#3772A8}
 .exampleContainer .exampleCode {background:#2b2f3b;padding:20px}
 .exampleContainer .exampleCode pre {line-height:0}
-.exampleContainer .exampleCode code {white-space:initial}
+.exampleContainer .exampleCode code {white-space:pre-line}
 .exampleContainer .exampleCode code * {font-family:consolas;font-size:13px}
-.exampleContainer .exampleCode code > p {line-height:20px;color:#7993ad}
+.exampleContainer .exampleCode code > p {line-height:20px;color:#7993ad;display:inline-block}
 .exampleContainer .exampleCode code .tab {padding-left:15px}
 .exampleContainer .exampleCode code .tab2 {padding-left:30px}
 .exampleContainer .exampleCode code .tab3 {padding-left:45px}
@@ -36,14 +37,28 @@ body {background:#fafafa}
 .exampleContainer .exampleCode code .var {color:#aae997}
 .exampleContainer .exampleCode code .var2 {color:#b297e9}
 
+.btn {padding:6px 15px;cursor:pointer;background:#fff;border:1px solid #ccc;display:inline-block;color:#000;line-height:20px}
+.btn:hover {background:#eee;border-color:#bbb}
+.btn:focus {background:#ddd;border-color:#aaa}
+.btn.btn-primary {background:#4081BE;color:#fff;border-color:#1E5589}
+.btn.btn-primary:hover {box-shadow:inset 0 0 0 20px rgba(0,0,0,0.2);border-color:#1E5589}
+.btn.btn-primary:focus {box-shadow:inset 0 0 0 20px rgba(0,0,0,0.3);border-color:#1E5589}
+
+.btn.btn-left {float:left;margin:0 5px 0 0!important}
+
+@media (max-width: 800px){
+#page {width:auto;min-width:0}
+}
+
 #container {padding:30px}
 #container form {margin:0 30%;text-align:center}
 #container form * {font-size:14px}
 #container form > label {display:block;padding-bottom:5px;text-align:left}
 #container form > input {width:100%;padding:6px 12px;margin-bottom:15px;box-sizing:border-box;-moz-box-sizing:border-box}
-#container form > button {padding:6px 12px;margin-bottom:15px}
+#container form > button {margin-bottom:15px}
 #controlContainer {padding-top:50px;text-align:center}
 #controlContainer div {padding-bottom:10px}
+#controlContainer select {padding:6px 12px;height:34px}
 #controlContainer #waitMe_ex_close {margin-left:20px}
 </style>
 <link type="text/css" rel="stylesheet" href="waitMe.css">
@@ -53,7 +68,7 @@ body {background:#fafafa}
 <div id="page">
 
 <div id="copyrightBlock">
-	<div id="version" title="Current version/date">1.05<span>[07.11.14]</span></div>
+	<div id="version" title="Current version/date">1.06<span>[06.02.15]</span></div>
 	<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 </div>
 
@@ -67,7 +82,7 @@ body {background:#fafafa}
 			<input type="text">
 			<label>Phone</label>
 			<input type="text">
-			<button type="button" id="waitMe_ex">Submit</button>
+			<button type="button" class="btn btn-primary" id="waitMe_ex">Submit</button>
 		</form>
 		
 		<div id="controlContainer">
@@ -90,7 +105,7 @@ body {background:#fafafa}
 				<option>progressBar</option>
 				<option>bouncePulse</option>
 			</select>
-			<button id="waitMe_ex_close">STOP</button>
+			<button class="btn" id="waitMe_ex_close">STOP</button>
 		</div>
 	
 	</div>
@@ -110,7 +125,7 @@ body {background:#fafafa}
 
 </div>
 
-<script src="http://cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
 <script src="waitMe.js"></script>
 <script>
 $(function(){
