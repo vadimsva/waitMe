@@ -1,7 +1,8 @@
 waitMe
 ======
 
-jquery plugin for easy creating loading css3 animations
+jquery plugin for easy creating loading css3 animations<br>
+Simple to use. Contains 14 animation effects
 
 <i>For work required only jQuery, other libraries are not required.</i>
 <i>Plugin use css3 animation, and works on all browsers and IE10+.</i>
@@ -12,7 +13,7 @@ jquery plugin for easy creating loading css3 animations
 
 <h4>Direct links to libs</h4>
 <a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [5.2Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [2.1Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [2.3Kb]<br>
 <a href="http://vadimsva.github.io/waitMe/waitMe.css" target="_blank"><b>waitMe.css</b></a> [19.7Kb]<br>
 <a href="http://vadimsva.github.io/waitMe/waitMe.min.css" target="_blank"><b>waitMe.min.css</b></a> [17.4Kb]
 
