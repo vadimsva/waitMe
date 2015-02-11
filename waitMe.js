@@ -1,5 +1,5 @@
 /*
-waitMe - 1.06 [06.02.15]
+waitMe - 1.07 [11.02.15]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -30,7 +30,8 @@ Github: https://github.com/vadimsva/waitMe
 						bg: 'rgba(255,255,255,0.7)',
 						color: '#000',
 						sizeW: '',
-						sizeH: ''
+						sizeH: '',
+						source: ''
 					};
 					_options = $.extend(_defaults, method);
 
@@ -117,6 +118,11 @@ Github: https://github.com/vadimsva/waitMe
 							containerSize = '';
 							elemSize = size;
 						break;
+						case 'img':
+							effectElemCount = 1;
+							containerSize = '';
+							elemSize = size;
+						break;
 					}
 					
 					if (_options.sizeW == '' && _options.sizeH == '') {
@@ -129,11 +135,15 @@ Github: https://github.com/vadimsva/waitMe
 					
 					if (effectElemCount > 0) {
 						effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '"></div>');
-						for (var i = 1; i <= effectElemCount; ++i) {
-							if (createSubElem) {
-								effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + elemSize + '"><div style="' + specificAttr +':' + _options.color +'"></div></div>';
-							} else {
-								effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + specificAttr + ':' + _options.color +';' + elemSize + '"></div>';
+						if(_options.effect == 'img') {
+							effectElemHTML = '<img src="' + _options.source + '" style="' + elemSize + '">';
+						} else {
+							for (var i = 1; i <= effectElemCount; ++i) {
+								if (createSubElem) {
+									effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + elemSize + '"><div style="' + specificAttr +':' + _options.color +'"></div></div>';
+								} else {
+									effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + specificAttr + ':' + _options.color +';' + elemSize + '"></div>';
+								}
 							}
 						}
 						effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '" style="' + containerSize + addStyle + '">' + effectElemHTML + '</div>');
