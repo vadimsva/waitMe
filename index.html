@@ -68,7 +68,7 @@ body {background:#f1f1f1}
 <div id="page">
 
 <div id="copyrightBlock">
-	<div id="version" title="Current version/date">1.06<span>[06.02.15]</span></div>
+	<div id="version" title="Current version/date">1.07<span>[11.02.15]</span></div>
 	<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 </div>
 
@@ -104,6 +104,7 @@ body {background:#f1f1f1}
 				<option>pulse</option>
 				<option>progressBar</option>
 				<option>bouncePulse</option>
+				<option>img</option>
 			</select>
 			<button class="btn" id="waitMe_ex_close">STOP</button>
 		</div>
@@ -118,7 +119,8 @@ body {background:#f1f1f1}
 			<p class="tab"><span class="key">bg</span> : <span class="val">rgba(255,255,255,0.7)</span>,</p>
 			<p class="tab"><span class="key">color</span> : <span class="val">#000</span>,</p>
 			<p class="tab"><span class="key">sizeW</span> : <span class="val">''</span>,</p>
-			<p class="tab"><span class="key">sizeH</span> : <span class="val">''</span></p>
+			<p class="tab"><span class="key">sizeH</span> : <span class="val">''</span>,</p>
+			<p class="tab"><span class="key">source</span> : <span class="val">''</span></p>
 			<p>}<span class="text">)</span>;</p>
 		</code></pre></div>
 	</div>
@@ -155,7 +157,8 @@ $(function(){
 			bg: 'rgba(255,255,255,0.7)',
 			color:'#000',
 			sizeW:'',
-			sizeH:''
+			sizeH:'',
+			source: 'img.svg'
 		});
 	}
 	
