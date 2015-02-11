@@ -2,18 +2,18 @@ waitMe
 ======
 
 jquery plugin for easy creating loading css3 animations<br>
-Simple to use. Contains 14 animation effects
+Simple to use. Contains 14 animation effects and can use images.
 
 <i>For work required only jQuery, other libraries are not required.</i>
-<i>Plugin use css3 animation, and works on all browsers and IE10+.</i>
+<i>Plugin works on all browsers and IE10+ (for css3 animation effects).</i>
 <br>
 
 <a href="http://vadimsva.github.io/waitMe/" target="_blank"><b>DEMO</b></a>
 
 
 <h4>Direct links to libs</h4>
-<a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [5.2Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [2.3Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [5.5Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [2.4Kb]<br>
 <a href="http://vadimsva.github.io/waitMe/waitMe.css" target="_blank"><b>waitMe.css</b></a> [19.7Kb]<br>
 <a href="http://vadimsva.github.io/waitMe/waitMe.min.css" target="_blank"><b>waitMe.min.css</b></a> [17.4Kb]
 
@@ -23,7 +23,7 @@ Simple to use. Contains 14 animation effects
 
 <h5>Parameters</h5>
 <code>effect</code> - animation effect (string).<br>
-Use: <code>'bounce'</code> - default, <code>none</code>, <code>rotateplane</code>, <code>stretch</code>, <code>orbit</code>, <code>roundBounce</code>, <code>win8</code>, <code>win8_linear</code>, <code>ios</code>, <code>facebook</code>, <code>rotation</code>, <code>timer</code>, <code>pulse</code>, <code>progressBar</code>, <code>bouncePulse</code>.<br>
+Use: <code>'bounce'</code> - default, <code>none</code>, <code>rotateplane</code>, <code>stretch</code>, <code>orbit</code>, <code>roundBounce</code>, <code>win8</code>, <code>win8_linear</code>, <code>ios</code>, <code>facebook</code>, <code>rotation</code>, <code>timer</code>, <code>pulse</code>, <code>progressBar</code>, <code>bouncePulse</code>, <code>img</code>.<br>
 <br>
 <code>text</code> - place text under the effect (string).<br>
 Use: <code>'text'</code>.<br>
@@ -39,6 +39,9 @@ Use: <code>'40px'</code>. By default, use empty string.<br>
 <br>
 <code>sizeH</code> - change height for elem animation (string).<br>
 Use: <code>'40px'</code>. By default, use empty string.<br>
+<br>
+<code>source</code> - url to image (string).<br>
+Use: <code>'url'</code>. By default, use empty string. Use with <code>effect: 'img'</code>.<br>
 <br>
 
 <h5>Methods</h5>
