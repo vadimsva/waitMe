@@ -12,10 +12,10 @@ Simple to use. Contains 14 animation effects and can use images.
 
 
 <h4>Direct links to libs</h4>
-<a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [5.5Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [2.4Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.css" target="_blank"><b>waitMe.css</b></a> [19.7Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.min.css" target="_blank"><b>waitMe.min.css</b></a> [17.4Kb]
+<a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [5.6Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [2.5Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.css" target="_blank"><b>waitMe.css</b></a> [21.1Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.min.css" target="_blank"><b>waitMe.min.css</b></a> [18.7Kb]
 
 <br><br>
 
@@ -65,3 +65,39 @@ For <code><b>sizeW</b></code> and <code>sizeH</code>, default sizes is:<br>
 <code><b>pulse</b></code> - <code>sizeW: '30px'</code>, <code>sizeH: '30px'</code><br>
 <code><b>progressbar</b></code> - <code>sizeW: '200px'</code>, <code>sizeH: '20px'</code><br>
 <code><b>bouncePulse</b></code> - <code>sizeW: '20px'</code>, <code>sizeH: '20px'</code><br>
+
+
+<br><br>
+
+<h5>Animation during the initial page load</h5>
+<pre>
+&lt;body class="waitMe_body"&gt;
+  &lt;div class="waitMe_container progress" style="background:#fff"&gt;
+    &lt;div style="background:#000"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</pre>
+
+<pre>
+&lt;body class="waitMe_body"&gt;
+  &lt;div class="waitMe_container working" style="background:#fff"&gt;
+    &lt;div style="background:#000"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</pre>
+
+<pre>
+&lt;body class="waitMe_body"&gt;
+  &lt;div class="waitMe_container img" style="background:#fff"&gt;
+    &lt;div style="background:url('img.png')"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</pre>
+
+<pre>
+&lt;body class="waitMe_body"&gt;
+  &lt;div class="waitMe_container text" style="background:#fff"&gt;
+    &lt;div style="color:#000"&gt;Loading&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</pre>
