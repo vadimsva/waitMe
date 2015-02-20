@@ -1,5 +1,5 @@
 /*
-waitMe - 1.07 [11.02.15]
+waitMe - 1.08 [20.02.15]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -195,4 +195,8 @@ Github: https://github.com/vadimsva/waitMe
 		});
 	
 	}
+	$(window).load(function(){
+		$('body.waitMe_body').find('.waitMe_container').remove();
+		$('body.waitMe_body').removeClass('waitMe_body');
+	});
 })(jQuery);
