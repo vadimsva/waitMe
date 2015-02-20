@@ -1,9 +1,9 @@
 /*
-waitMe - 1.07 [11.02.15]
+waitMe - 1.08 [20.02.15]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
-.waitMe_container {position:relative}
+.waitMe_container {position:relative;transform:translateZ(0);-webkit-backface-visibility:hidden;backface-visibility:hidden}
 body.waitMe_container {position:fixed;width:100%;height:100%}
 .waitMe_container .waitMe {position:absolute;top:0;left:0;right:0;bottom:0;z-index:9989;text-align:center}
 .waitMe_container .waitMe * {font-family:sans-serif;font-size:14px;font-weight:initial;font-style:initial;color:initial;text-decoration:initial;text-transform:initial;padding:initial;margin:initial}
@@ -11,6 +11,41 @@ body.waitMe_container {position:fixed;width:100%;height:100%}
 .waitMe_container .waitMe .waitMe_progress {position:relative}
 .waitMe_container .waitMe .waitMe_progress > div {-webkit-animation-fill-mode:both;animation-fill-mode:both;display:inline-block}
 .waitMe_container .waitMe .waitMe_text {position:relative;margin:20px 0 0}
+
+/* before load animation */
+body.waitMe_body {overflow:hidden}
+body.waitMe_body .waitMe_container {position:fixed;z-index:9989;top:0;bottom:0;left:0;right:0;background:#fff}
+body.waitMe_body .waitMe_container > div {-webkit-animation-fill-mode:both;animation-fill-mode:both;position:absolute}
+body.waitMe_body .waitMe_container.progress > div {
+width:0;height:3px;top:0;left:0;background:#000;box-shadow:-5px 0 5px 2px rgba(0,0,0,0.2);
+-webkit-animation: progress_body 10s infinite ease-in-out;
+animation: progress_body 10s infinite ease-in-out;
+}
+
+body.waitMe_body .waitMe_container.working > div {
+width:10%;height:3px;top:0;left:-10%;background:#000;box-shadow:-5px 0 5px 2px rgba(0,0,0,0.2);
+-webkit-animation: working_body 2s infinite ease-in-out;
+animation: working_body 2s infinite ease-in-out;
+}
+body.waitMe_body .waitMe_container.img > div {width:100%;height:100%;background-position:center!important;background-repeat:no-repeat!important}
+body.waitMe_body .waitMe_container.text > div {width:100%;top:45%;text-align:center}
+
+@-webkit-keyframes progress_body {
+	0% {width:0}
+	100% {width:100%}
+}
+@keyframes progress_body {
+	0% {width:0}
+	100% {width:100%}
+}
+@-webkit-keyframes working_body {
+	0% {left:-10%}
+	100% {left:100%}
+}
+@keyframes working_body {
+	0% {left:-10%}
+	100% {left:100%}
+}
 
 
 /* bounce */
