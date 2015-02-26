@@ -1,5 +1,5 @@
 /*
-waitMe - 1.08 [20.02.15]
+waitMe - 1.09 [26.02.15]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
