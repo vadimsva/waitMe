@@ -68,7 +68,7 @@ body {background:#f1f1f1}
 <div id="page">
 
 <div id="copyrightBlock">
-	<div id="version" title="Current version/date">1.08<span>[20.02.15]</span></div>
+	<div id="version" title="Current version/date">1.09<span>[26.02.15]</span></div>
 	<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 </div>
 
@@ -164,7 +164,7 @@ $(function(){
 		run_waitMe(current_effect);
 	});
 	$('#waitMe_ex_close').click(function(){
-		$('#container > form').waitMe('hide');
+		$('.containerBlock > form').waitMe('hide');
 	});
 
 	$('#waitMe_ex_effect').change(function(){
@@ -177,7 +177,7 @@ $(function(){
 	});
 	
 	function run_waitMe(effect){
-		$('#container > form').waitMe({
+		$('.containerBlock > form').waitMe({
 			effect: effect,
 			text: 'Please wait...',
 			bg: 'rgba(255,255,255,0.7)',
