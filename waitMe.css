@@ -1,5 +1,5 @@
 /*
-waitMe - 1.08 [20.02.15]
+waitMe - 1.09 [26.02.15]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -14,8 +14,8 @@ body.waitMe_container {position:fixed;width:100%;height:100%}
 
 /* before load animation */
 body.waitMe_body {overflow:hidden}
-body.waitMe_body .waitMe_container {position:fixed;z-index:9989;top:0;bottom:0;left:0;right:0;background:#fff}
-body.waitMe_body .waitMe_container > div {-webkit-animation-fill-mode:both;animation-fill-mode:both;position:absolute}
+body.waitMe_body .waitMe_container:not([data-waitme_id]) {position:fixed;z-index:9989;top:0;bottom:0;left:0;right:0;background:#fff}
+body.waitMe_body .waitMe_container:not([data-waitme_id]) > div {-webkit-animation-fill-mode:both;animation-fill-mode:both;position:absolute}
 body.waitMe_body .waitMe_container.progress > div {
 width:0;height:3px;top:0;left:0;background:#000;box-shadow:-5px 0 5px 2px rgba(0,0,0,0.2);
 -webkit-animation: progress_body 10s infinite ease-in-out;
