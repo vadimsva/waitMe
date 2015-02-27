@@ -196,7 +196,7 @@ Github: https://github.com/vadimsva/waitMe
 	
 	}
 	$(window).load(function(){
-		$('body.waitMe_body').find('.waitMe_container').remove();
+		$('body.waitMe_body').find('.waitMe_container:not([data-waitme_id])').remove();
 		$('body.waitMe_body').removeClass('waitMe_body');
 	});
 })(jQuery);
