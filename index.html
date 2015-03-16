@@ -51,11 +51,11 @@ body {background:#f1f1f1}
 }
 
 .containerBlock {padding:30px}
-.containerBlock form {margin:0 30%;text-align:center}
+.containerBlock form {margin:0 25%;text-align:center;padding:30px;background:#fafafa;border:1px solid #ddd}
 .containerBlock form * {font-size:14px}
 .containerBlock form > label {display:block;padding-bottom:5px;text-align:left}
 .containerBlock form > input {width:100%;padding:6px 12px;margin-bottom:15px;box-sizing:border-box;-moz-box-sizing:border-box}
-.containerBlock form > button {margin-bottom:15px}
+.containerBlock form > button {margin-top:15px}
 .controlContainer {padding-top:50px;text-align:center}
 .controlContainer div {padding-bottom:10px}
 .controlContainer select {padding:6px 12px;height:34px}
@@ -68,13 +68,14 @@ body {background:#f1f1f1}
 <div id="page">
 
 <div id="copyrightBlock">
-	<div id="version" title="Current version/date">1.09<span>[26.02.15]</span></div>
+	<div id="version" title="Current version/date">1.10<span>[16.03.15]</span></div>
 	<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 </div>
 
 	<h2>waitMe</h2>
 	
 	<div class="containerBlock">
+	
 		<form>
 			<label>Name</label>
 			<input type="text">
@@ -207,14 +208,17 @@ $(function(){
 		if(effect == 'img'){
 			img = 'background:url(\'img.svg\')';
 		} else if(effect == 'text'){
-			text = 'Loading'; 
+			text = 'Loading...'; 
 		}
 		var elem = $('<div class="waitMe_container ' + effect + '"><div style="' + img + '">' + text + '</div></div>');
 		$('body').prepend(elem);
 		
 		setTimeout(function(){
-			$('body.waitMe_body').find('.waitMe_container:not([data-waitme_id])').remove();
-			$('body.waitMe_body').removeClass('waitMe_body');
+			$('body.waitMe_body').addClass('hideMe');
+			setTimeout(function(){
+				$('body.waitMe_body').find('.waitMe_container:not([data-waitme_id])').remove();
+				$('body.waitMe_body').removeClass('waitMe_body hideMe');
+			},200);
 		},4000);
 	}
 	
