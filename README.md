@@ -64,8 +64,9 @@ For <code><b>sizeW</b></code> and <code>sizeH</code>, default sizes is:<br>
 <code><b>timer</b></code> - <code>sizeW: '40px'</code>, <code>sizeH: '40px'</code><br>
 <code><b>pulse</b></code> - <code>sizeW: '30px'</code>, <code>sizeH: '30px'</code><br>
 <code><b>progressbar</b></code> - <code>sizeW: '200px'</code>, <code>sizeH: '20px'</code><br>
-<code><b>bouncePulse</b></code> - <code>sizeW: '20px'</code>, <code>sizeH: '20px'</code><br>
+<code><b>bouncePulse</b></code> - <code>sizeW: '20px'</code>, <code>sizeH: '20px'</code><br><br>
 
+<b>Don't use as element container non block elements such as table, input, textarea and etc. Use div, span or body (you may use html and it would be work as body).</b><br>
 
 <br><br>
 
