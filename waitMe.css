@@ -1,5 +1,5 @@
 /*
-waitMe - 1.09 [26.02.15]
+waitMe - 1.10 [16.03.15]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -13,13 +13,14 @@ body.waitMe_container {position:fixed;width:100%;height:100%}
 .waitMe_container .waitMe .waitMe_text {position:relative;margin:20px 0 0}
 
 /* before load animation */
-body.waitMe_body {overflow:hidden}
+body.waitMe_body {overflow:hidden;height:100%}
+body.waitMe_body.hideMe {transition:opacity .2s ease-in-out;opacity:0}
 body.waitMe_body .waitMe_container:not([data-waitme_id]) {position:fixed;z-index:9989;top:0;bottom:0;left:0;right:0;background:#fff}
 body.waitMe_body .waitMe_container:not([data-waitme_id]) > div {-webkit-animation-fill-mode:both;animation-fill-mode:both;position:absolute}
 body.waitMe_body .waitMe_container.progress > div {
 width:0;height:3px;top:0;left:0;background:#000;box-shadow:-5px 0 5px 2px rgba(0,0,0,0.2);
--webkit-animation: progress_body 10s infinite ease-in-out;
-animation: progress_body 10s infinite ease-in-out;
+-webkit-animation: progress_body 7s infinite ease-out;
+animation: progress_body 7s infinite ease-out;
 }
 
 body.waitMe_body .waitMe_container.working > div {
@@ -27,7 +28,9 @@ width:10%;height:3px;top:0;left:-10%;background:#000;box-shadow:-5px 0 5px 2px r
 -webkit-animation: working_body 2s infinite ease-in-out;
 animation: working_body 2s infinite ease-in-out;
 }
-body.waitMe_body .waitMe_container.img > div {width:100%;height:100%;background-position:center!important;background-repeat:no-repeat!important}
+body.waitMe_body .waitMe_container.progress > div:after {content:'';position:absolute;top:0;bottom:60%;right:0;width:60px;border-radius:50%;opacity:.5;transform:rotate(3deg);box-shadow:#000 1px 0 6px 1px}
+
+body.waitMe_body .waitMe_container.img > div {width:100%;height:100%;text-align:center;background-position:center!important;background-repeat:no-repeat!important}
 body.waitMe_body .waitMe_container.text > div {width:100%;top:45%;text-align:center}
 
 @-webkit-keyframes progress_body {
