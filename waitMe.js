@@ -1,8 +1,8 @@
 /*
- waitMe - 1.10 [16.03.15]
- Author: vadimsva
- Github: https://github.com/vadimsva/waitMe
- */
+waitMe - 1.11 [25.03.15]
+Author: vadimsva
+Github: https://github.com/vadimsva/waitMe
+*/
 (function($) {
   $.fn.waitMe = function(method) {
     return this.each(function() {
@@ -171,15 +171,26 @@
             var elH = elem.find('.' + elemClass + '_content').outerHeight();
             var elTop = elem.offset().top;
             var cH = elem.outerHeight();
-            var getTop = Math.abs(sTop - elTop + elH);
-            elem.find('.' + elemClass + '_content').css({top: 'auto', transform: 'translateY(' + getTop + 'px)'});
+						var getTop = sTop - elTop + $(window).height()/2;
+						if (getTop < 0) {
+							getTop = Math.abs(getTop);
+						}
+						if (getTop - elH >= 0 && getTop + elH <= cH) {
+							setElTop(getTop);
+						} else {
+							getTop = sTop - elTop + elH;
+							setElTop(getTop);
+						}
             $(document).scroll(function() {
               sTop = $(window).scrollTop();
-              var getTop = Math.abs(sTop - elTop + $(window).height()/2);
+              var getTop = sTop - elTop + $(window).height()/2;
               if (getTop - elH >= 0 && getTop + elH <= cH) {
-                elem.find('.' + elemClass + '_content').css({top: 'auto', transform: 'translateY(' + getTop + 'px)'});
+								setElTop(getTop);
               }
             });
+						function setElTop(getTop) {
+							elem.find('.' + elemClass + '_content').css({top: 'auto', transform: 'translateY(' + getTop + 'px)'});
+						}
           }
 
         },
