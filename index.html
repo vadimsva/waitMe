@@ -6,15 +6,19 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>waitMe</title>
 <style>
-* {margin:0;font-family:sans-serif;outline:0}
+* {margin:0;font-family:Roboto,sans-serif;outline:0;box-sizing:border-box}
 body {background:#f1f1f1}
-#page {background:#fff;border:1px solid #ccc;margin:60px auto;width:40%;min-width:800px;min-height:500px;border-radius:3px;position:relative;box-sizing:border-box}
-#page h2 {margin:20px;color:#444;margin-top:120px}
-#page #copyrightBlock + h2 {margin-top:20px}
-#copyrightBlock {position:absolute;top:-40px;right:0}
-#version, #gitHubLink {color:#fff;background:#4081BE;display:inline-block;padding:0 10px;border-radius:3px;text-decoration:none;font-size:12px;line-height:24px;margin-left:1px}
-#gitHubLink:hover {background:#3772A8}
-#version {background:transparent;color:#555;font-weight:bold}
+#page {margin:30px auto 100px;width:40%;min-width:800px;min-height:500px}
+#page_content {background:#fff;box-shadow:0 1px 5px #ccc;margin-top:20px}
+#pageCaption {font-size:24px;font-weight:500;line-height:24px}
+#pageDesc {color:#777;margin-top:5px;font-size:90%}
+
+#copyrightBlock {float:right}
+#version, #gitHubLink, #downloadLink {color:#fff;background:#4081BE;display:inline-block;padding:0 10px;border-radius:3px;text-decoration:none;font-size:12px;line-height:24px;margin-left:1px}
+#downloadLink:hover {background:#3772A8}
+#gitHubLink {background:#ccc;color:#555;font-weight:500}
+#gitHubLink:hover {background:#aaa;color:#333}
+#version {background:transparent;color:#555;font-weight:500}
 #version span {margin-left:10px;color:#999}
 
 .exampleContainer {}
@@ -37,17 +41,22 @@ body {background:#f1f1f1}
 .exampleContainer .exampleCode code .var {color:#aae997}
 .exampleContainer .exampleCode code .var2 {color:#b297e9}
 
-.btn {padding:6px 15px;cursor:pointer;background:#fff;border:1px solid #ccc;display:inline-block;color:#000;line-height:20px}
-.btn:hover {background:#eee;border-color:#bbb}
-.btn:focus {background:#ddd;border-color:#aaa}
-.btn.btn-primary {background:#4081BE;color:#fff;border-color:#1E5589}
-.btn.btn-primary:hover {box-shadow:inset 0 0 0 20px rgba(0,0,0,0.2);border-color:#1E5589}
-.btn.btn-primary:focus {box-shadow:inset 0 0 0 20px rgba(0,0,0,0.3);border-color:#1E5589}
+/* btn */
+.btn {display:inline-block;cursor:pointer;background:#fff;border:1px solid #bbb;height:34px;padding:6px 12px;font-size:14px;line-height:18px}
+.btn.btn-default {}
+.btn.btn-default:hover {background:#eee;border-color:#bbb}
+.btn.btn-default:focus {background:#ddd;border-color:#bbb}
+.btn.btn-primary {background-color:#007ec4;border-color:#005A8C;color:#fff}
+.btn.btn-primary:hover {background-color:#158CCF;border-color:#005A8C}
+.btn.btn-primary:focus {background-color:#005A8C;border-color:#005A8C}
+.btn.btn-default[disabled] {background:#fafafa!important;border-color:#ccc!important;color:#aaa}
+.btn.btn-primary[disabled] {background:#3F9DD0!important;border-color:#537FA9!important;color:#ACD3E8;box-shadow:none!important}
 
 .btn.btn-left {float:left;margin:0 5px 0 0!important}
 
-@media (max-width: 800px){
-#page {width:auto;min-width:0}
+
+@media (max-width: 840px){
+#page {width:auto;min-width:0;margin:30px 30px 100px}
 }
 
 .containerBlock {padding:30px}
@@ -61,96 +70,103 @@ body {background:#f1f1f1}
 .controlContainer select {padding:6px 12px;height:34px}
 .controlContainer select + button {margin-left:20px}
 </style>
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500">
 <link type="text/css" rel="stylesheet" href="waitMe.css">
 </head>
 <body>
 
 <div id="page">
 
-<div id="copyrightBlock">
-	<div id="version" title="Current version/date">1.11<span>[25.03.15]</span></div>
-	<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
-</div>
+	<div id="copyrightBlock">
+		<div id="version" title="Current version/date">1.11<span>[25.03.15]</span></div>
+		<a href="https://github.com/vadimsva/waitMe/releases" id="downloadLink">Download</a>
+		<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
+	</div>
 
-	<h2>waitMe</h2>
+	<div id="pageCaption">waitMe</div>
+	<div id="pageDesc">jquery plugin for easy creating loading css3/images animations</div>
 	
-	<div class="containerBlock">
+	<div id="page_content">
 	
-		<form>
-			<label>Name</label>
-			<input type="text">
-			<label>Email</label>
-			<input type="text">
-			<label>Phone</label>
-			<input type="text">
-			<button type="button" class="btn btn-primary" id="waitMe_ex">Submit</button>
-		</form>
+		<div class="containerBlock">
 		
-		<div class="controlContainer">
-			<div>To start click Submit button</div>
-			Effect
-			<select id="waitMe_ex_effect">
-				<option>none</option>
-				<option selected>bounce</option>
-				<option>rotateplane</option>
-				<option>stretch</option>
-				<option>orbit</option>
-				<option>roundBounce</option>
-				<option>win8</option>
-				<option>win8_linear</option>
-				<option>ios</option>
-				<option>facebook</option>
-				<option>rotation</option>
-				<option>timer</option>
-				<option>pulse</option>
-				<option>progressBar</option>
-				<option>bouncePulse</option>
-				<option>img</option>
-			</select>
-			<button class="btn" id="waitMe_ex_close">STOP</button>
+			<form>
+				<label>Name</label>
+				<input type="text">
+				<label>Email</label>
+				<input type="text">
+				<label>Phone</label>
+				<input type="text">
+				<button type="button" class="btn btn-primary" id="waitMe_ex">Submit</button>
+			</form>
+			
+			<div class="controlContainer">
+				<div>To start click Submit button</div>
+				Effect
+				<select id="waitMe_ex_effect">
+					<option>none</option>
+					<option selected>bounce</option>
+					<option>rotateplane</option>
+					<option>stretch</option>
+					<option>orbit</option>
+					<option>roundBounce</option>
+					<option>win8</option>
+					<option>win8_linear</option>
+					<option>ios</option>
+					<option>facebook</option>
+					<option>rotation</option>
+					<option>timer</option>
+					<option>pulse</option>
+					<option>progressBar</option>
+					<option>bouncePulse</option>
+					<option>img</option>
+				</select>
+				<button class="btn" id="waitMe_ex_close">STOP</button>
+			</div>
+		
 		</div>
-	
-	</div>
-	
-	<div class="exampleContainer">
-		<div class="exampleCode"><pre><code>
-			<p><span class="text">$('</span><span class="tag">#container</span><span class="text">').waitMe(</span>{</p>
-			<p class="tab"><span class="key">effect</span> : <span class="val">'bounce'</span>,</p>
-			<p class="tab"><span class="key">text</span> : <span class="val">''</span>,</p>
-			<p class="tab"><span class="key">bg</span> : <span class="val">rgba(255,255,255,0.7)</span>,</p>
-			<p class="tab"><span class="key">color</span> : <span class="val">#000</span>,</p>
-			<p class="tab"><span class="key">sizeW</span> : <span class="val">''</span>,</p>
-			<p class="tab"><span class="key">sizeH</span> : <span class="val">''</span>,</p>
-			<p class="tab"><span class="key">source</span> : <span class="val">''</span></p>
-			<p>}<span class="text">)</span>;</p>
-		</code></pre></div>
-	</div>
-	
-	<div class="containerBlock">
-		<div class="controlContainer">
-			<div>Animation during the initial page load</div>
-			Effect
-			<select id="waitMe_ex_body_effect">
-				<option selected>progress</option>
-				<option>working</option>
-				<option>img</option>
-				<option>text</option>
-			</select>
-			<button class="btn btn-primary" id="waitMe_ex_body">EXAMPLE</button>
+		
+		<div class="exampleContainer">
+			<div class="exampleCode"><pre><code>
+				<p><span class="text">$('</span><span class="tag">#container</span><span class="text">').waitMe(</span>{</p>
+				<p class="tab"><span class="key">effect</span> : <span class="val">'bounce'</span>,</p>
+				<p class="tab"><span class="key">text</span> : <span class="val">''</span>,</p>
+				<p class="tab"><span class="key">bg</span> : <span class="val">rgba(255,255,255,0.7)</span>,</p>
+				<p class="tab"><span class="key">color</span> : <span class="val">#000</span>,</p>
+				<p class="tab"><span class="key">sizeW</span> : <span class="val">''</span>,</p>
+				<p class="tab"><span class="key">sizeH</span> : <span class="val">''</span>,</p>
+				<p class="tab"><span class="key">source</span> : <span class="val">''</span></p>
+				<p>}<span class="text">)</span>;</p>
+			</code></pre></div>
 		</div>
-	
-	</div>
-	
-	<div class="exampleContainer">
-		<div class="exampleCode"><pre><code>
-			<p>&lt;<span class="tag">body</span> <span class="key">class</span>=<span class="val">"waitMe_body"</span>&gt;</p>
-			<p class="tab">&lt;<span class="tag">div</span> <span class="key">class</span>=<span class="val">"waitMe_container progress"</span> <span class="key">style</span>=<span class="val">"background:#fff"</span>&gt;</p>
-			<p class="tab2">&lt;<span class="tag">div</span> <span class="key">style</span>=<span class="val">"background:#000"</span>&gt;&lt;/<span class="tag">div</span>&gt;</p>
-			<p class="tab">&lt;/<span class="tag">div</span>&gt;</p>
-			<p>&lt;/<span class="tag">body</span>&gt;</p>
-		</code></pre></div>
-	</div>
+		
+		<div class="containerBlock">
+			<div class="controlContainer">
+				<div>Animation during the initial page load</div>
+				Effect
+				<select id="waitMe_ex_body_effect">
+					<option selected>progress</option>
+					<option>working</option>
+					<option>img</option>
+					<option>text</option>
+				</select>
+				<button class="btn btn-primary" id="waitMe_ex_body">EXAMPLE</button>
+			</div>
+		
+		</div>
+		
+		<div class="exampleContainer">
+			<div class="exampleCode"><pre><code>
+				<p>&lt;<span class="tag">body</span> <span class="key">class</span>=<span class="val">"waitMe_body"</span>&gt;</p>
+				<p class="tab">&lt;<span class="tag">div</span> <span class="key">class</span>=<span class="val">"waitMe_container progress"</span> <span class="key">style</span>=<span class="val">"background:#fff"</span>&gt;</p>
+				<p class="tab2">&lt;<span class="tag">div</span> <span class="key">style</span>=<span class="val">"background:#000"</span>&gt;&lt;/<span class="tag">div</span>&gt;</p>
+				<p class="tab">&lt;/<span class="tag">div</span>&gt;</p>
+				<p>&lt;/<span class="tag">body</span>&gt;</p>
+			</code></pre></div>
+		</div>
 
+	</div>
+		
 </div>
 
 <script src="http://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
