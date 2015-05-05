@@ -1,5 +1,5 @@
 /*
-waitMe - 1.11 [25.03.15]
+waitMe - 1.12 [05.05.15]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -125,11 +125,11 @@ Github: https://github.com/vadimsva/waitMe
               break;
           }
 
-          if (_options.sizeW == '' && _options.sizeH == '') {
+          if (_options.sizeW === '' && _options.sizeH === '') {
             elemSize = '';
             containerSize = '';
           }
-          if (containerSize != '' && addStyle != '') {
+          if (containerSize !== '' && addStyle !== '') {
             addStyle = ';' + addStyle;
           }
 
@@ -152,23 +152,29 @@ Github: https://github.com/vadimsva/waitMe
           if (_options.text) {
             waitMe_text = $('<div class="' + elemClass + '_text" style="color:' + _options.color + '">' + _options.text + '</div>');
           }
+					var elemObj = elem.find('> .' + elemClass);
 
-          if (elem.find('> .' + elemClass)) {
-            elem.find('> .' + elemClass).remove();
+          if (elemObj) {
+            elemObj.remove();
           }
-          waitMeDivObj = $('<div class="' + elemClass + '_content"></div>');
+          var waitMeDivObj = $('<div class="' + elemClass + '_content"></div>');
           waitMeDivObj.append(effectObj, waitMe_text);
           waitMeObj.append(waitMeDivObj);
           if (elem[0].tagName == 'HTML') {
             elem = $('body');
           }
           elem.addClass(elemClass + '_container').attr('data-waitme_id', currentID).append(waitMeObj);
-          elem.find('> .' + elemClass).css({background: _options.bg});
-          elem.find('.' + elemClass + '_content').css({marginTop: - elem.find('.' + elemClass + '_content').outerHeight() / 2 + 'px'});
+					elemObj = elem.find('> .' + elemClass);
+					var elemContentObj = elem.find('.' + elemClass + '_content');
+          elemObj.css({background: _options.bg});
+          elemContentObj.css({marginTop: - elemContentObj.outerHeight() / 2 + 'px'});
 
+					function setElTop(getTop) {
+						elemContentObj.css({top: 'auto', transform: 'translateY(' + getTop + 'px)'});
+					}
           if (elem.outerHeight() > $(window).height()) {
             var sTop = $(window).scrollTop();
-            var elH = elem.find('.' + elemClass + '_content').outerHeight();
+            var elH = elemContentObj.outerHeight();
             var elTop = elem.offset().top;
             var cH = elem.outerHeight();
 						var getTop = sTop - elTop + $(window).height()/2;
@@ -182,15 +188,12 @@ Github: https://github.com/vadimsva/waitMe
 							setElTop(getTop);
 						}
             $(document).scroll(function() {
-              sTop = $(window).scrollTop();
+              var sTop = $(window).scrollTop();
               var getTop = sTop - elTop + $(window).height()/2;
               if (getTop - elH >= 0 && getTop + elH <= cH) {
 								setElTop(getTop);
               }
             });
-						function setElTop(getTop) {
-							elem.find('.' + elemClass + '_content').css({top: 'auto', transform: 'translateY(' + getTop + 'px)'});
-						}
           }
 
         },
@@ -214,14 +217,14 @@ Github: https://github.com/vadimsva/waitMe
       $.event.special.destroyed = {
         remove: function(o) {
           if (o.handler) {
-            o.handler()
+            o.handler();
           }
         }
-      }
+      };
 
     });
 
-  }
+  };
   $(window).load(function(){
     $('body.waitMe_body').addClass('hideMe');
     setTimeout(function(){
