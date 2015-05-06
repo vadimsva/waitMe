@@ -1,5 +1,5 @@
 /*
-waitMe - 1.12 [05.05.15]
+waitMe - 1.12 [06.05.15]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -170,7 +170,7 @@ Github: https://github.com/vadimsva/waitMe
           elemContentObj.css({marginTop: - elemContentObj.outerHeight() / 2 + 'px'});
 
 					function setElTop(getTop) {
-						elemContentObj.css({top: 'auto', transform: 'translateY(' + getTop + 'px)'});
+						elemContentObj.css({top: 'auto', transform: 'translateY(' + getTop + 'px) translateZ(0)'});
 					}
           if (elem.outerHeight() > $(window).height()) {
             var sTop = $(window).scrollTop();
@@ -182,9 +182,16 @@ Github: https://github.com/vadimsva/waitMe
 							getTop = Math.abs(getTop);
 						}
 						if (getTop - elH >= 0 && getTop + elH <= cH) {
+							if (elTop - sTop > $(window).height()/2) {
+								getTop = elH;
+							}
 							setElTop(getTop);
 						} else {
-							getTop = sTop - elTop + elH;
+							if (sTop > elTop + cH - elH) {
+								getTop = sTop - elTop - elH;
+							} else {
+								getTop = sTop - elTop + elH;
+							}
 							setElTop(getTop);
 						}
             $(document).scroll(function() {
