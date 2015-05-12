@@ -1,5 +1,5 @@
 /*
-waitMe - 1.12 [06.05.15]
+waitMe - 1.12 [12.05.15]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
