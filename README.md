@@ -12,10 +12,10 @@ Simple to use. Contains 14 animation effects and can use images.
 
 
 <h4>Direct links to libs</h4>
-<a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [8Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [3Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.css" target="_blank"><b>waitMe.css</b></a> [14.4Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.min.css" target="_blank"><b>waitMe.min.css</b></a> [13.2Kb]
+<a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [8.6Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [3.3Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.css" target="_blank"><b>waitMe.css</b></a> [14.5Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.min.css" target="_blank"><b>waitMe.min.css</b></a> [13.3Kb]
 
 <br><br>
 
@@ -31,8 +31,8 @@ Use: <code>'text'</code>.<br>
 <code>bg</code> - background for container (string).<br>
 Use: <code>'rgba(255,255,255,0.7)'</code>. You can use color and image.<br>
 <br>
-<code>color</code> - color for background animation and text (string).<br>
-Use: <code>'#000'</code><br>
+<code>color</code> - color for background animation and text (string, array).<br>
+Use: <code>'#000'</code>, <code>['','',...]</code> - you can use multicolor for effect<br>
 <br>
 <code>sizeW</code> - change width for elem animation (string).<br>
 Use: <code>'40px'</code>. By default, use empty string.<br>
@@ -42,6 +42,9 @@ Use: <code>'40px'</code>. By default, use empty string.<br>
 <br>
 <code>source</code> - url to image (string).<br>
 Use: <code>'url'</code>. By default, use empty string. Use with <code>effect: 'img'</code>.<br>
+<br>
+<code>onClose</code> - code execution after popup closed (function).<br>
+Use: <code>function(){}</code><br>
 <br>
 
 <h5>Methods</h5>
