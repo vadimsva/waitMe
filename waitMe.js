@@ -1,5 +1,5 @@
 /*
-waitMe - 1.13 [05.10.15]
+waitMe - 1.14 [20.11.15]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -8,19 +8,19 @@ Github: https://github.com/vadimsva/waitMe
     return this.each(function() {
 
       var elem = $(this),
-        elemClass = 'waitMe',
-        waitMe_text,
-        effectObj,
-        effectElemCount,
-        createSubElem = false,
-        specificAttr = 'background-color',
-        addStyle = '',
-        effectElemHTML = '',
-        waitMeObj,
-        containerSize,
-        elemSize,
-        _options,
-        currentID;
+			elemClass = 'waitMe',
+			waitMe_text,
+			effectObj,
+			effectElemCount,
+			createSubElem = false,
+			specificAttr = 'background-color',
+			addStyle = '',
+			effectElemHTML = '',
+			waitMeObj,
+			containerSize,
+			elemSize,
+			_options,
+			currentID;
 
       var methods = {
         init : function() {
@@ -31,7 +31,8 @@ Github: https://github.com/vadimsva/waitMe
             color: '#000',
             sizeW: '',
             sizeH: '',
-            source: ''
+            source: '',
+						onClose: function() {}
           };
           _options = $.extend(_defaults, method);
 
@@ -98,7 +99,12 @@ Github: https://github.com/vadimsva/waitMe
               break;
             case 'timer':
               effectElemCount = 2;
-              addStyle = 'border-color:' + _options.color;
+							if ($.isArray(_options.color)) {
+								var color = _options.color[0];
+							} else {
+								var color = _options.color;
+							}
+              addStyle = 'border-color:' + color;
               containerSize = size;
               elemSize = '';
               break;
@@ -139,10 +145,18 @@ Github: https://github.com/vadimsva/waitMe
               effectElemHTML = '<img src="' + _options.source + '" style="' + elemSize + '">';
             } else {
               for (var i = 1; i <= effectElemCount; ++i) {
+								if ($.isArray(_options.color)) {
+									var color = _options.color[i];
+									if (color == undefined) {
+										color = '#000';
+									}
+								} else {
+									var color = _options.color;
+								}
                 if (createSubElem) {
-                  effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + elemSize + '"><div style="' + specificAttr +':' + _options.color +'"></div></div>';
+                  effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + elemSize + '"><div style="' + specificAttr +':' + color +'"></div></div>';
                 } else {
-                  effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + specificAttr + ':' + _options.color +';' + elemSize + '"></div>';
+                  effectElemHTML += '<div class="' + elemClass + '_progress_elem' + i + '" style="' + specificAttr + ':' + color +';' + elemSize + '"></div>';
                 }
               }
             }
@@ -150,7 +164,12 @@ Github: https://github.com/vadimsva/waitMe
           }
 
           if (_options.text) {
-            waitMe_text = $('<div class="' + elemClass + '_text" style="color:' + _options.color + '">' + _options.text + '</div>');
+						if ($.isArray(_options.color)) {
+							var color = _options.color[0];
+						} else {
+							var color = _options.color;
+						}
+            waitMe_text = $('<div class="' + elemClass + '_text" style="color:' + color + '">' + _options.text + '</div>');
           }
 					var elemObj = elem.find('> .' + elemClass);
 
@@ -202,7 +221,23 @@ Github: https://github.com/vadimsva/waitMe
               }
             });
           }
+					
+					elemObj.on('destroyed', function() {
+						if (_options.onClose && $.isFunction(_options.onClose)) {
+							_options.onClose();
+						}
+						elemObj.trigger('close');
+					});
 
+					$.event.special.destroyed = {
+						remove: function(o) {
+							if (o.handler) {
+								o.handler();
+							}
+						}
+					};
+					
+					return elemObj;
         },
         hide : function() {
           waitMeClose();
@@ -220,14 +255,6 @@ Github: https://github.com/vadimsva/waitMe
       } else if (typeof method === 'object' || ! method) {
         return methods.init.apply(this, arguments);
       }
-
-      $.event.special.destroyed = {
-        remove: function(o) {
-          if (o.handler) {
-            o.handler();
-          }
-        }
-      };
 
     });
 
