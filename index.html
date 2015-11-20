@@ -82,7 +82,7 @@ body {background:#f1f1f1}
 <div id="page">
 
 	<div id="copyrightBlock">
-		<div id="version" title="Current version/date">1.13<span>[05.10.15]</span></div>
+		<div id="version" title="Current version/date">1.14<span>[20.11.15]</span></div>
 		<a href="https://github.com/vadimsva/waitMe/releases" id="downloadLink">Download</a>
 		<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 	</div>
@@ -125,7 +125,7 @@ body {background:#f1f1f1}
 					<option>bouncePulse</option>
 					<option>img</option>
 				</select>
-				<button class="btn" id="waitMe_ex_close">STOP</button>
+				<button class="btn btn-default" id="waitMe_ex_close">STOP</button>
 			</div>
 		
 		</div>
@@ -205,10 +205,10 @@ $(function(){
 			color:'#000',
 			sizeW:'',
 			sizeH:'',
-			source: 'img.svg'
+			source: 'img.svg',
+			onClose: function() {}
 		});
 	}
-	
 	
 	var current_body_effect = $('#waitMe_ex_body_effect').val();
 	
