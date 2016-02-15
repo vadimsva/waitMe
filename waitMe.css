@@ -1,14 +1,14 @@
 /*
-waitMe - 1.14 [20.11.15]
+waitMe - 1.15 [15.02.16]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
 .waitMe_container {position:relative;transform:translateZ(0);backface-visibility:hidden}
 body.waitMe_container {position:fixed;width:100%;height:100%}
-.waitMe_container .waitMe {position:absolute;top:0;left:0;right:0;bottom:0;z-index:9989;text-align:center}
-.waitMe_container .waitMe * {font-family:sans-serif;font-size:14px;font-weight:initial;font-style:initial;color:initial;text-decoration:initial;text-transform:initial;padding:initial;margin:initial}
-.waitMe_container .waitMe .waitMe_content {position:absolute;width:100%;top:50%;backface-visibility:hidden}
-.waitMe_container .waitMe .waitMe_progress {position:relative}
+.waitMe_container .waitMe {position:absolute;top:0;left:0;right:0;bottom:0;z-index:9989;text-align:center;overflow:hidden}
+.waitMe_container .waitMe * {font-family:sans-serif;font-size:14px;font-weight:initial;font-style:initial;line-height:initial;color:initial;text-decoration:initial;text-transform:initial;padding:initial;margin:initial}
+.waitMe_container .waitMe .waitMe_content {position:absolute;left:0;right:0;top:50%;backface-visibility:hidden}
+.waitMe_container .waitMe .waitMe_progress {position:relative;font-size:0}
 .waitMe_container .waitMe .waitMe_progress > div {animation-fill-mode:both;display:inline-block;transform:translateZ(0);backface-visibility:hidden}
 .waitMe_container .waitMe .waitMe_text {position:relative;margin:20px 0 0}
 
@@ -65,10 +65,10 @@ body.waitMe_body .waitMe_container.text > div {width:100%;top:45%;text-align:cen
 
 /* orbit */
 .waitMe_container .waitMe_progress.orbit {width:40px;height:40px;margin:auto;animation:orbit_rotate 2s infinite linear}
-.waitMe_container .waitMe_progress.orbit > div {width:50%;height:50%;border-radius:50%;top:0;position:absolute;animation:orbit 2s infinite ease-in-out}
-.waitMe_container .waitMe_progress.orbit .waitMe_progress_elem2 {top:auto;bottom:0;animation-delay:-1s}
+.waitMe_container .waitMe_progress.orbit > div {width:50%;height:50%;border-radius:50%;top:10%;left:10%;position:absolute;animation:orbit 2s infinite ease-in-out}
+.waitMe_container .waitMe_progress.orbit .waitMe_progress_elem2 {top:auto;bottom:10%;left:auto;right:10%;animation-delay:-1s}
 @keyframes orbit_rotate {
-	100% {transform:rotate(360deg)}
+	100% {transform:rotate(360deg) scale(1)}
 }
 @keyframes orbit {
   0%, 100% {transform:scale(0)}
@@ -109,9 +109,9 @@ body.waitMe_body .waitMe_container.text > div {width:100%;top:45%;text-align:cen
 
 
 /* win8 */
-.waitMe_container .waitMe_progress.win8 {height:40px;margin:auto}
-.waitMe_container .waitMe_progress.win8 > div {width:40px;height:40px;opacity:0;position:absolute;margin:auto;left:0;right:0;transform:rotate(225deg);animation:win8 5.5s infinite}
-.waitMe_container .waitMe_progress.win8 > div > div {width:15%;height:15%;border-radius:50%;position:absolute;margin:-12.5%}
+.waitMe_container .waitMe_progress.win8 {width:40px;height:40px;margin:auto}
+.waitMe_container .waitMe_progress.win8 > div {width:100%;height:100%;opacity:0;position:absolute;margin:auto;left:0;right:0;transform:rotate(225deg);animation:win8 5.5s infinite}
+.waitMe_container .waitMe_progress.win8 > div > div {width:15%;height:15%;border-radius:50%;position:absolute}
 .waitMe_container .waitMe_progress.win8 .waitMe_progress_elem2 {animation-delay:.24s}
 .waitMe_container .waitMe_progress.win8 .waitMe_progress_elem3 {animation-delay:.48s}
 .waitMe_container .waitMe_progress.win8 .waitMe_progress_elem4 {animation-delay:.72s}
@@ -208,8 +208,8 @@ body.waitMe_body .waitMe_container.text > div {width:100%;top:45%;text-align:cen
 
 
 /* progressBar */
-.waitMe_container .waitMe_progress.progressBar {width:200px;height:20px;margin:auto;background:rgba(0,0,0,.1);padding:5px;border-radius:20px;line-height:0}
-.waitMe_container .waitMe_progress.progressBar > div {width:100%;height:100%;overflow:hidden;border-radius:20px;background-size:50px 50px;box-shadow:inset 0 2px 9px rgba(255,255,255,.3), inset 0 -2px 6px rgba(0,0,0,.4);background-image:linear-gradient(-45deg, rgba(240,240,240,.4) 25%, transparent 25%, transparent 50%, rgba(240,240,240,.4) 50%, rgba(240,240,240,.4) 75%, transparent 75%, transparent);animation:progressBar 2s linear infinite}
+.waitMe_container .waitMe_progress.progressBar {width:200px;height:20px;margin:auto;background:rgba(0,0,0,.1);padding:5px;border-radius:20px;line-height:0;max-width:100%}
+.waitMe_container .waitMe_progress.progressBar > div {width:100%;height:100%;overflow:hidden;border-radius:20px;background-size:50px 50px;box-shadow:inset 0 2px 9px rgba(255,255,255,.3), inset 0 -2px 6px rgba(0,0,0,.4);background-image:linear-gradient(-45deg, rgba(240,240,240,.4) 26%, transparent 25%, transparent 51%, rgba(240,240,240,.4) 50%, rgba(240,240,240,.4) 76%, transparent 75%, transparent);animation:progressBar 2s linear infinite}
 @keyframes progressBar {
   0% {background-position:0 0}
   100% {background-position:50px 50px}
