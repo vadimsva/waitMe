@@ -82,7 +82,7 @@ body {background:#f1f1f1}
 <div id="page">
 
 	<div id="copyrightBlock">
-		<div id="version" title="Current version/date">1.14<span>[20.11.15]</span></div>
+		<div id="version" title="Current version/date">1.15<span>[15.02.16]</span></div>
 		<a href="https://github.com/vadimsva/waitMe/releases" id="downloadLink">Download</a>
 		<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 	</div>
@@ -173,7 +173,7 @@ body {background:#f1f1f1}
 		
 </div>
 
-<script src="http://cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery/3.0.0-beta1/jquery.min.js"></script>
 <script src="waitMe.js"></script>
 
 <script>
@@ -202,9 +202,8 @@ $(function(){
 			effect: effect,
 			text: 'Please wait...',
 			bg: 'rgba(255,255,255,0.7)',
-			color:'#000',
-			sizeW:'',
-			sizeH:'',
+			color: '#000',
+			maxSize: '',
 			source: 'img.svg',
 			onClose: function() {}
 		});
