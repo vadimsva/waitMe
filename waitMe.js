@@ -1,5 +1,5 @@
 /*
-waitMe - 1.15 [15.02.16]
+waitMe - 1.16 [25.07.16]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -147,7 +147,7 @@ Github: https://github.com/vadimsva/waitMe
 					elemObj = elem.find('> .' + elemClass);
 					var elemContentObj = elem.find('.' + elemClass + '_content');
           elemObj.css({background: _options.bg});
-					elemContentObj.css({marginTop: - elemContentObj.outerHeight() / 2 + 'px'});
+					
 					
 					if (_options.maxSize !== '') {
 						var elemH = effectObj.outerHeight();
@@ -159,10 +159,17 @@ Github: https://github.com/vadimsva/waitMe
 							elemContentObj.css({marginTop: - elemContentObj.outerHeight() / 2 + 'px'});
 						} else {
 							if (_options.maxSize < elemMax) {
-								waitMeDivObj.css({transform: 'scale(' + _options.maxSize / elemMax + ')'});	
+								if (_options.effect == 'stretch') {
+									effectObj.css({height:_options.maxSize + 'px'});
+									effectObj.find('> div').css({margin: '0 5%'});
+								} else {
+									waitMeDivObj.css({zoom: _options.maxSize / elemMax - 0.2});
+								}
+								
 							}
 						}
 					}
+					elemContentObj.css({marginTop: - elemContentObj.outerHeight() / 2 + 'px'});
 
 					function setElTop(getTop) {
 						elemContentObj.css({top: 'auto', transform: 'translateY(' + getTop + 'px) translateZ(0)'});
