@@ -12,10 +12,10 @@ Simple to use. Contains 14 animation effects and can use images.
 
 
 <h4>Direct links to libs</h4>
-<a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [7.7Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [3.2Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.css" target="_blank"><b>waitMe.css</b></a> [14.6Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.min.css" target="_blank"><b>waitMe.min.css</b></a> [13.4Kb]
+<a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [7.8Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [3.3Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.css" target="_blank"><b>waitMe.css</b></a> [14.8Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.min.css" target="_blank"><b>waitMe.min.css</b></a> [13.6Kb]
 
 <br><br>
 
@@ -35,7 +35,7 @@ Use: <code>'rgba(255,255,255,0.7)'</code>. You can use color and image.<br>
 Use: <code>'#000'</code>, <code>['','',...]</code> - you can use multicolor for effect<br>
 <br>
 <code>maxSize</code> - set max size for elem animation (string).<br>
-Use: <code>'40px'</code>. By default, use empty string.<br>
+Use: <code>40</code>. By default, use empty string.<br>
 <br>
 <code>source</code> - url to image (string).<br>
 Use: <code>'url'</code>. By default, use empty string. Use with <code>effect: 'img'</code>.<br>
