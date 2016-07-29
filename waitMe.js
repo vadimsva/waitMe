@@ -1,5 +1,5 @@
 /*
-waitMe - 1.16 [25.07.16]
+waitMe - 1.17 [29.07.16]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -28,6 +28,7 @@ Github: https://github.com/vadimsva/waitMe
             bg: 'rgba(255,255,255,0.7)',
             color: '#000',
 						maxSize: '',
+						textPos: 'vertical',
             source: '',
 						onClose: function() {}
           };
@@ -124,7 +125,7 @@ Github: https://github.com/vadimsva/waitMe
             effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '" style="' + addStyle + '">' + effectElemHTML + '</div>');
           }
 
-          if (_options.text && _options.maxSize === '') {
+          if (_options.text && _options.maxSize === '' || _options.textPos == 'horizontal') {
 						if ($.isArray(_options.color)) {
 							var color = _options.color[0];
 						} else {
@@ -137,7 +138,7 @@ Github: https://github.com/vadimsva/waitMe
           if (elemObj) {
             elemObj.remove();
           }
-          var waitMeDivObj = $('<div class="' + elemClass + '_content"></div>');
+          var waitMeDivObj = $('<div class="' + elemClass + '_content ' + _options.textPos + '"></div>');
           waitMeDivObj.append(effectObj, waitMe_text);
           waitMeObj.append(waitMeDivObj);
           if (elem[0].tagName == 'HTML') {
@@ -160,10 +161,10 @@ Github: https://github.com/vadimsva/waitMe
 						} else {
 							if (_options.maxSize < elemMax) {
 								if (_options.effect == 'stretch') {
-									effectObj.css({height:_options.maxSize + 'px'});
+									effectObj.css({height:_options.maxSize + 'px',width:_options.maxSize + 'px'});
 									effectObj.find('> div').css({margin: '0 5%'});
 								} else {
-									waitMeDivObj.css({zoom: _options.maxSize / elemMax - 0.2});
+									effectObj.css({zoom: _options.maxSize / elemMax - 0.2});
 								}
 								
 							}
