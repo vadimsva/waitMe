@@ -1,14 +1,16 @@
 /*
-waitMe - 1.16 [25.07.16]
+waitMe - 1.17 [29.07.16]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
-.waitMe_container:not(body) {position:relative;transform:translateZ(0);backface-visibility:hidden}
+.waitMe_container:not(body) {transform:translateZ(0);backface-visibility:hidden}
 body.waitMe_container .waitMe {position:fixed;height:100vh;transform:translateZ(0);backface-visibility:hidden}
 body.waitMe_container .waitMe .waitMe_content {top:50%!important;transform:none!important}
 .waitMe_container .waitMe {position:absolute;top:0;left:0;right:0;bottom:0;z-index:9989;text-align:center;overflow:hidden}
 .waitMe_container .waitMe * {font-family:sans-serif;font-size:14px;font-weight:initial;font-style:initial;line-height:initial;color:initial;text-decoration:initial;text-transform:initial;padding:initial;margin:initial}
 .waitMe_container .waitMe .waitMe_content {position:absolute;left:0;right:0;top:50%;backface-visibility:hidden}
+.waitMe_container .waitMe .waitMe_content.horizontal > .waitMe_progress {display:inline-block;vertical-align:middle}
+.waitMe_container .waitMe .waitMe_content.horizontal > .waitMe_text {display:inline-block;margin:0 0 0 20px;vertical-align:middle}
 .waitMe_container .waitMe .waitMe_progress {position:relative;font-size:0}
 .waitMe_container .waitMe .waitMe_progress > div {animation-fill-mode:both;display:inline-block;transform:translateZ(0);backface-visibility:hidden}
 .waitMe_container .waitMe .waitMe_text {position:relative;margin:20px 0 0}
