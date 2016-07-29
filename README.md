@@ -12,10 +12,10 @@ Simple to use. Contains 14 animation effects and can use images.
 
 
 <h4>Direct links to libs</h4>
-<a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [7.8Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [3.3Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.css" target="_blank"><b>waitMe.css</b></a> [14.8Kb]<br>
-<a href="http://vadimsva.github.io/waitMe/waitMe.min.css" target="_blank"><b>waitMe.min.css</b></a> [13.6Kb]
+<a href="http://vadimsva.github.io/waitMe/waitMe.js" target="_blank"><b>waitMe.js</b></a> [8Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.min.js" target="_blank"><b>waitMe.min.js</b></a> [3.4Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.css" target="_blank"><b>waitMe.css</b></a> [15.1Kb]<br>
+<a href="http://vadimsva.github.io/waitMe/waitMe.min.css" target="_blank"><b>waitMe.min.css</b></a> [13.8Kb]
 
 <br><br>
 
@@ -36,6 +36,9 @@ Use: <code>'#000'</code>, <code>['','',...]</code> - you can use multicolor for 
 <br>
 <code>maxSize</code> - set max size for elem animation (string).<br>
 Use: <code>40</code>. By default, use empty string.<br>
+<br>
+<code>textPos</code> - change text position (string).<br>
+Use: <code>'vertical'</code> - default, <code>'horizontal'</code>.<br>
 <br>
 <code>source</code> - url to image (string).<br>
 Use: <code>'url'</code>. By default, use empty string. Use with <code>effect: 'img'</code>.<br>
