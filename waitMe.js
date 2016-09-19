@@ -125,7 +125,7 @@ Github: https://github.com/vadimsva/waitMe
             effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '" style="' + addStyle + '">' + effectElemHTML + '</div>');
           }
 
-          if (_options.text && _options.maxSize === '' || _options.textPos == 'horizontal') {
+          if (_options.text) {
 						if ($.isArray(_options.color)) {
 							var color = _options.color[0];
 						} else {
