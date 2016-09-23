@@ -1,5 +1,5 @@
 /*
-waitMe - 1.17 [29.07.16]
+waitMe - 1.18 [23.09.16]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -29,6 +29,7 @@ Github: https://github.com/vadimsva/waitMe
             color: '#000',
 						maxSize: '',
 						textPos: 'vertical',
+						fontSize: '',
             source: '',
 						onClose: function() {}
           };
@@ -52,6 +53,7 @@ Github: https://github.com/vadimsva/waitMe
               break;
             case 'orbit':
               effectElemCount = 2;
+							createSubElem = true;
               break;
             case 'roundBounce':
               effectElemCount = 12;
@@ -125,13 +127,18 @@ Github: https://github.com/vadimsva/waitMe
             effectObj = $('<div class="' + elemClass + '_progress ' + _options.effect + '" style="' + addStyle + '">' + effectElemHTML + '</div>');
           }
 
-          if (_options.text && _options.maxSize === '' || _options.textPos == 'horizontal') {
+          if (_options.text) {
 						if ($.isArray(_options.color)) {
 							var color = _options.color[0];
 						} else {
 							var color = _options.color;
 						}
-            waitMe_text = $('<div class="' + elemClass + '_text" style="color:' + color + '">' + _options.text + '</div>');
+						if (_options.fontSize != '') {
+							var size = 'font-size:'+_options.fontSize;
+						} else {
+							var size = '';
+						}
+            waitMe_text = $('<div class="' + elemClass + '_text" style="color:' + color + ';' + size + '">' + _options.text + '</div>');
           }
 					var elemObj = elem.find('> .' + elemClass);
 
@@ -149,8 +156,7 @@ Github: https://github.com/vadimsva/waitMe
 					var elemContentObj = elem.find('.' + elemClass + '_content');
           elemObj.css({background: _options.bg});
 					
-					
-					if (_options.maxSize !== '') {
+					if (_options.maxSize !== '' && _options.effect != 'none') {
 						var elemH = effectObj.outerHeight();
 						var elemW = effectObj.outerWidth();
 						var elemMax = elemH;
@@ -161,10 +167,19 @@ Github: https://github.com/vadimsva/waitMe
 						} else {
 							if (_options.maxSize < elemMax) {
 								if (_options.effect == 'stretch') {
-									effectObj.css({height:_options.maxSize + 'px',width:_options.maxSize + 'px'});
+									effectObj.css({height:_options.maxSize + 'px', width:_options.maxSize + 'px'});
 									effectObj.find('> div').css({margin: '0 5%'});
 								} else {
-									effectObj.css({zoom: _options.maxSize / elemMax - 0.2});
+									var zoom = _options.maxSize / elemMax - 0.2;
+									var offset = '-50%';
+									if (_options.effect == 'roundBounce') {
+										offset = '-75%';
+									} else if (_options.effect == 'win8' || _options.effect == 'timer' || _options.effect == 'orbit') {
+										offset = '-20%';
+									} else if (_options.effect == 'ios') {
+										offset = '-15%';
+									}
+									effectObj.css({transform: 'scale('+zoom+') translateX('+offset+')', whiteSpace:'nowrap'});
 								}
 								
 							}
