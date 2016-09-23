@@ -1,5 +1,5 @@
 /*
-waitMe - 1.17 [29.07.16]
+waitMe - 1.18 [23.09.16]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -7,11 +7,11 @@ Github: https://github.com/vadimsva/waitMe
 body.waitMe_container .waitMe {position:fixed;height:100vh;transform:translateZ(0);backface-visibility:hidden}
 body.waitMe_container .waitMe .waitMe_content {top:50%!important;transform:none!important}
 .waitMe_container .waitMe {position:absolute;top:0;left:0;right:0;bottom:0;z-index:9989;text-align:center;overflow:hidden}
-.waitMe_container .waitMe * {font-family:sans-serif;font-size:14px;font-weight:initial;font-style:initial;line-height:initial;color:initial;text-decoration:initial;text-transform:initial;padding:initial;margin:initial}
+.waitMe_container .waitMe * {font-family:inherit;font-size:inherit;font-weight:initial;font-style:initial;line-height:initial;color:initial;text-decoration:initial;text-transform:initial;padding:initial;margin:initial}
 .waitMe_container .waitMe .waitMe_content {position:absolute;left:0;right:0;top:50%;backface-visibility:hidden}
 .waitMe_container .waitMe .waitMe_content.horizontal > .waitMe_progress {display:inline-block;vertical-align:middle}
 .waitMe_container .waitMe .waitMe_content.horizontal > .waitMe_text {display:inline-block;margin:0 0 0 20px;vertical-align:middle}
-.waitMe_container .waitMe .waitMe_progress {position:relative;font-size:0}
+.waitMe_container .waitMe .waitMe_progress {position:relative;font-size:0;line-height:0}
 .waitMe_container .waitMe .waitMe_progress > div {animation-fill-mode:both;display:inline-block;transform:translateZ(0);backface-visibility:hidden}
 .waitMe_container .waitMe .waitMe_text {position:relative;margin:20px 0 0}
 
@@ -68,11 +68,13 @@ body.waitMe_body .waitMe_container.text > div {width:100%;top:45%;text-align:cen
 
 
 /* orbit */
-.waitMe_container .waitMe_progress.orbit {width:40px;height:40px;margin:auto;animation:orbit_rotate 2s infinite linear}
-.waitMe_container .waitMe_progress.orbit > div {width:50%;height:50%;border-radius:50%;top:10%;left:10%;position:absolute;animation:orbit 2s infinite ease-in-out}
-.waitMe_container .waitMe_progress.orbit .waitMe_progress_elem2 {top:auto;bottom:10%;left:auto;right:10%;animation-delay:-1s}
+.waitMe_container .waitMe_progress.orbit {width:40px;height:40px;margin:auto;position:relative}
+.waitMe_container .waitMe_progress.orbit > div {width:100%;height:100%;margin:auto;top:0;left:0;position:absolute;animation:orbit_rotate 2s infinite linear}
+.waitMe_container .waitMe_progress.orbit > div > div {width:50%;height:50%;border-radius:50%;top:10%;left:10%;position:absolute;animation:orbit 2s infinite ease-in-out}
+.waitMe_container .waitMe_progress.orbit .waitMe_progress_elem2 > div {top:auto;bottom:10%;left:auto;right:10%;animation-delay:-1s}
 @keyframes orbit_rotate {
-	100% {transform:rotate(360deg) scale(1)}
+	0% {transform:rotate(0deg)}
+	100% {transform:rotate(360deg)}
 }
 @keyframes orbit {
   0%, 100% {transform:scale(0)}
@@ -141,7 +143,7 @@ body.waitMe_body .waitMe_container.text > div {width:100%;top:45%;text-align:cen
 .waitMe_container .waitMe_progress.win8_linear .waitMe_progress_elem4 {animation-delay:.9s}
 .waitMe_container .waitMe_progress.win8_linear .waitMe_progress_elem5 {animation-delay:1.2s}
 @keyframes win8_linear {
-  0% {transform:translateX(0);animation-timing-function:ease-out} 
+  0%, 100% {transform:translateX(0);animation-timing-function:ease-out} 
   10% {opacity:1;transform:translateX(33.333%);animation-timing-function:linear}
   50% {opacity:1;transform:translateX(53.333%);animation-timing-function:ease-in-out}
   60% {opacity:0;transform:translateX(86.666%)}
@@ -221,11 +223,11 @@ body.waitMe_body .waitMe_container.text > div {width:100%;top:45%;text-align:cen
 
 
 /* bouncePulse */
-.waitMe_container .waitMe_progress.bouncePulse > div {width:20px;height:20px;margin-right:1%;display:inline-block;border-radius:50%;transform:scale(.5);animation:bouncePulse 1.4s infinite ease-in-out}
+.waitMe_container .waitMe_progress.bouncePulse > div {width:20px;height:20px;margin-right:1px;display:inline-block;border-radius:50%;transform:scale(.5);animation:bouncePulse 1.4s infinite ease-in-out}
 .waitMe_container .waitMe_progress.bouncePulse > .waitMe_progress_elem1,
-.waitMe_container .waitMe_progress.bouncePulse > .waitMe_progress_elem3 {animation-delay:.3s}
-.waitMe_container .waitMe_progress.bouncePulse > .waitMe_progress_elem2 {animation-delay:.1s}
+.waitMe_container .waitMe_progress.bouncePulse > .waitMe_progress_elem3 {animation-delay:.1s}
+.waitMe_container .waitMe_progress.bouncePulse > .waitMe_progress_elem2 {animation-delay:.4s}
 @keyframes bouncePulse {
-	0%, 90%, 100% {transform:scale(.5)}
-	45% {transform:scale(1)}
+	0%, 80%, 100% {transform:scale(.5)}
+	40% {transform:scale(1)}
 }
