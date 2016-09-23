@@ -87,7 +87,7 @@ body {background:#f1f1f1}
 <div id="page">
 
 	<div id="copyrightBlock">
-		<div id="version" title="Current version/date">1.17<span>[29.07.16]</span></div>
+		<div id="version" title="Current version/date">1.18<span>[23.09.16]</span></div>
 		<a href="https://github.com/vadimsva/waitMe/releases" id="downloadLink">Download</a>
 		<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
 	</div>
@@ -154,6 +154,7 @@ body {background:#f1f1f1}
 				<p class="tab"><span class="key">color</span> : <span class="val">#000</span>,</p>
 				<p class="tab"><span class="key">maxSize</span> : <span class="val">''</span>,</p>
 				<p class="tab"><span class="key">textPos</span> : <span class="val">'vertical'</span>,</p>
+				<p class="tab"><span class="key">fontSize</span> : <span class="val">''</span>,</p>
 				<p class="tab"><span class="key">source</span> : <span class="val">''</span></p>
 				<p>}<span class="text">)</span>;</p>
 			</code></pre></div>
@@ -217,28 +218,34 @@ $(function(){
 	});
 	
 	function run_waitMe(el, num, effect){
+		text = 'Please wait...';
+		fontSize = '';
 		switch (num) {
 			case 1:
 			maxSize = '';
 			textPos = 'vertical';
 			break;
 			case 2:
+			text = '';
 			maxSize = 30;
 			textPos = 'vertical';
 			break;
 			case 3:
 			maxSize = 30;
 			textPos = 'horizontal';
+			fontSize = '18px';
 			break;
 		}
+		console.log(effect)
 		el.waitMe({
 			effect: effect,
-			text: 'Please wait...',
+			text: text,
 			bg: 'rgba(255,255,255,0.7)',
 			color: '#000',
 			maxSize: maxSize,
 			source: 'img.svg',
 			textPos: textPos,
+			fontSize: fontSize,
 			onClose: function() {}
 		});
 	}
