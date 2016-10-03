@@ -174,10 +174,24 @@ Github: https://github.com/vadimsva/waitMe
 									var offset = '-50%';
 									if (_options.effect == 'roundBounce') {
 										offset = '-75%';
+										if (_options.text) {
+											offset = '75%';	
+										}
 									} else if (_options.effect == 'win8' || _options.effect == 'timer' || _options.effect == 'orbit') {
 										offset = '-20%';
+										if (_options.text) {
+											offset = '20%';	
+										}
 									} else if (_options.effect == 'ios') {
 										offset = '-15%';
+										if (_options.text) {
+											offset = '15%';
+										}
+									}
+									if (_options.effect == 'rotation') {
+										if (_options.text) {
+											offset = '75%';	
+										}
 									}
 									effectObj.css({transform: 'scale('+zoom+') translateX('+offset+')', whiteSpace:'nowrap'});
 								}
