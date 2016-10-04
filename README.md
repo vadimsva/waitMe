@@ -46,13 +46,18 @@ Use: <code>'18px'</code>. By default, use empty string.<br>
 <code>source</code> - url to image (string).<br>
 Use: <code>'url'</code>. By default, use empty string. Use with <code>effect: 'img'</code>.<br>
 <br>
-<code>onClose</code> - code execution after popup closed (function).<br>
+<code>onClose</code> - code execution after closed (function).<br>
 Use: <code>function(){}</code><br>
 <br>
 
 <h5>Methods</h5>
 <code>hide</code> - for close waitMe.<br>
 Use: <code>$(container).waitMe("hide");</code><br>
+<br>
+
+<h5>Triggers</h5>
+<code>close</code> - execution after closed.<br>
+Use: <code>$('.waitMe').on('close', function() {});</code><br>
 <br>
 
 
