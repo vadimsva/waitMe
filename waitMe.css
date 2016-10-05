@@ -6,7 +6,7 @@ Github: https://github.com/vadimsva/waitMe
 .waitMe_container:not(body) {transform:translateZ(0);backface-visibility:hidden}
 body.waitMe_container .waitMe {position:fixed;height:100vh;transform:translateZ(0);backface-visibility:hidden}
 body.waitMe_container .waitMe .waitMe_content {top:50%!important;transform:none!important}
-.waitMe_container .waitMe {position:absolute;top:0;left:0;right:0;bottom:0;z-index:9989;text-align:center;overflow:hidden}
+.waitMe_container .waitMe {position:absolute;top:0;left:0;right:0;bottom:0;z-index:9989;text-align:center;overflow:hidden;cursor:wait}
 .waitMe_container .waitMe * {font-family:inherit;font-size:inherit;font-weight:initial;font-style:initial;line-height:initial;color:initial;text-decoration:initial;text-transform:initial;padding:initial;margin:initial}
 .waitMe_container .waitMe .waitMe_content {position:absolute;left:0;right:0;top:50%;backface-visibility:hidden}
 .waitMe_container .waitMe .waitMe_content.horizontal > .waitMe_progress {display:inline-block;vertical-align:middle}
