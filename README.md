@@ -1,6 +1,8 @@
 waitMe
 ======
-[![TypeScript definitions on DefinitelyTyped](//definitelytyped.org/badges/standard.svg)](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/50e385dcbf594ccf8d01e5c044b861261ab8c54e/types/waitme/index.d.ts)
+
+[![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard.svg)](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/50e385dcbf594ccf8d01e5c044b861261ab8c54e/types/waitme/index.d.ts)
+
 
 jquery plugin for easy creating loading css3 animations<br>
 Simple to use. Contains 14 animation effects and can use images.
