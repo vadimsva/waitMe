@@ -8,25 +8,41 @@
 <style>
 * {margin:0;font-family:Roboto,sans-serif;outline:0;box-sizing:border-box;font-size:14px}
 body {background:#f1f1f1}
-#page {margin:30px auto 100px;width:40%;min-width:800px;min-height:500px}
-#page_content {background:#fff;box-shadow:0 1px 5px #ccc;margin-top:20px}
-#pageCaption {font-size:24px;font-weight:500;line-height:24px}
-#pageDesc {color:#777;margin-top:5px;font-size:90%}
 
-#copyrightBlock {float:right}
-#version, #gitHubLink, #downloadLink {color:#fff;background:#4081BE;display:inline-block;padding:0 10px;border-radius:3px;text-decoration:none;font-size:12px;line-height:24px;margin-left:1px}
-#downloadLink:hover {background:#3772A8}
-#gitHubLink {background:#ccc;color:#555;font-weight:500}
-#gitHubLink:hover {background:#aaa;color:#333}
-#version {background:transparent;color:#555;font-weight:500}
-#version span {margin-left:10px;color:#999;font-size:12px}
+::-webkit-scrollbar {width:10px}
+::-webkit-scrollbar-track {background-color:#f1f1f1}
+::-webkit-scrollbar-thumb {background-color:#9699a2}
+::-webkit-scrollbar-thumb:hover {background-color:#555}
 
-.exampleContainer {}
-.exampleContainer .exampleLive {border-top:1px solid #ddd;padding:20px;background:#fafafa}
-.exampleContainer .exampleLive .exampleLiveTitle {color:#666;font-size:13px;padding-bottom:10px}
-.exampleContainer .exampleLive > button {padding:6px 12px;cursor:pointer;background:#4081BE;border:0;color:#fff;border-radius:3px;text-transform:uppercase;font-weight:bold;font-size:13px;line-height:20px}
-.exampleContainer .exampleLive > button:hover {background:#3772A8}
-.exampleContainer .exampleCode {background:#2b2f3b;padding:20px}
+#page {margin:30px auto 60px;width:40%;min-width:800px;min-height:500px}
+#page_content {background:#fff;box-shadow:0 1px 5px #ccc;margin:20px 0 20px;border-radius:3px;position:relative;padding:30px 30px 60px}
+
+.pageCaption {margin-bottom:40px;font-size:34px;line-height:40px}
+.blockCaption {margin-bottom:20px;font-size:24px;border-bottom:1px solid #ddd;line-height:40px}
+
+#header {}
+.prjData {float:right;font-weight:500;line-height:24px;display:flex}
+.prjData > a {font-size:12px;display:inline-block;padding:0 10px;border-radius:3px;text-decoration:none;margin-left:5px;transition:all 0.2s ease-in-out}
+.prjData > a:hover {box-shadow:inset 0 0 0 30px rgba(0,0,0,0.2)}
+.prjData > .prjVer {background:transparent;color:#555;display:inline-block;padding:0 10px;margin-left:5px;font-size:12px}
+.prjData > .prjVer > span {margin-left:10px;font-size:12px;color:#999}
+.prjData > .prjDownloadLink {color:#fff;background:#0084ff}
+.prjData > .prjGitLink {color:#555;background:#ccc}
+.prjName {font-size:24px;font-weight:500;line-height:24px}
+.prjDesc {color:#777;margin-top:5px;font-size:90%}
+
+#footer {}
+.prjCopyright {color:#777}
+.prjLicense {float:right;font-size:12px}
+.prjAuthor {font-size:12px}
+
+
+.exampleContainer {margin:-1px 0 50px}
+.exampleContainer:last-child {margin-bottom:0}
+.exampleContainer .exampleLive {padding:20px 0;font-size:14px}
+.exampleContainer .exampleLive:after {content:'';clear:both;display:table}
+.exampleContainer .exampleLive .exampleLiveTitle {padding-bottom:10px}
+.exampleContainer .exampleCode {background:#2b2f3b;padding:20px;overflow:auto;border-radius:4px}
 .exampleContainer .exampleCode pre {line-height:0}
 .exampleContainer .exampleCode code {white-space:pre-line}
 .exampleContainer .exampleCode code * {font-family:consolas;font-size:13px}
@@ -34,6 +50,7 @@ body {background:#f1f1f1}
 .exampleContainer .exampleCode code .tab {padding-left:15px}
 .exampleContainer .exampleCode code .tab2 {padding-left:30px}
 .exampleContainer .exampleCode code .tab3 {padding-left:45px}
+.exampleContainer .exampleCode code .tab4 {padding-left:60px}
 .exampleContainer .exampleCode code .tag {color:#97e0e9}
 .exampleContainer .exampleCode code .text {color:#fff}
 .exampleContainer .exampleCode code .key {color:#bf5c5b}
@@ -41,43 +58,83 @@ body {background:#f1f1f1}
 .exampleContainer .exampleCode code .var {color:#aae997}
 .exampleContainer .exampleCode code .var2 {color:#b297e9}
 
-/* btn */
-.btn {display:inline-block;cursor:pointer;background:#fff;border:1px solid #bbb;height:34px;padding:6px 12px;font-size:14px;line-height:18px}
-.btn.btn-default {}
-.btn.btn-default:hover {background:#eee;border-color:#bbb}
-.btn.btn-default:focus {background:#ddd;border-color:#bbb}
-.btn.btn-primary {background-color:#007ec4;border-color:#005A8C;color:#fff}
-.btn.btn-primary:hover {background-color:#158CCF;border-color:#005A8C}
-.btn.btn-primary:focus {background-color:#005A8C;border-color:#005A8C}
-.btn.btn-default[disabled] {background:#fafafa!important;border-color:#ccc!important;color:#aaa}
-.btn.btn-primary[disabled] {background:#3F9DD0!important;border-color:#537FA9!important;color:#ACD3E8;box-shadow:none!important}
+.docContainer {margin-bottom:40px}
+.docContainer:last-child {margin-bottom:0}
+.docContainer > .docLive > .docTitle {padding-bottom:10px}
+.docContainer > .docLive > .docText {padding-bottom:10px;font-size:13px;color:#444}
+.docContainer > .docLive > p {margin-bottom:10px;line-height:22px}
+.docContainer > .docCode {background:#f7f7f9;padding:20px;overflow:auto;border-radius:4px}
+.docContainer > .docCode + .docLive {margin-top:20px}
+.docContainer > .docCode pre {line-height:0}
+.docContainer > .docCode code {white-space:pre-line}
+.docContainer > .docCode code * {font-family:consolas;font-size:13px}
+.docContainer > .docCode code > p {line-height:22px;color:#7993ad;display:inline-block}
+.docContainer > .docCode code .tab {padding-left:15px}
+.docContainer > .docCode code .tab2 {padding-left:30px}
+.docContainer > .docCode code .tab3 {padding-left:45px}
+.docContainer > .docCode code .tab4 {padding-left:60px}
+.docContainer > .docCode code .tag {color:#26bfef}
+.docContainer > .docCode code .text {color:#333}
+.docContainer > .docCode code .key {color:#f52222}
+.docContainer > .docCode code .val {color:#007b10}
+.docContainer > .docCode code .var {color:#1cc1d4}
+.docContainer > .docCode code .var2 {color:#7c46e8}
+.docContainer .code {background:#d9dee2;display:inline-block;padding:0 2px;border-radius:3px;line-height:18px;font-family:consolas;font-size:13px}
 
-.btn.btn-left {float:left;margin:0 5px 0 0!important}
-
-.containerBlock {padding:30px}
 .containerBlock form {margin:0 25%;text-align:center;padding:30px;background:#fafafa;border:1px solid #ddd}
-.containerBlock form * {font-size:14px}
 .containerBlock form > label {display:block;padding-bottom:5px;text-align:left}
-.containerBlock form > input {width:100%;padding:6px 12px;margin-bottom:15px;box-sizing:border-box;-moz-box-sizing:border-box}
+.containerBlock form > input {width:100%;padding:6px 12px;margin-bottom:15px}
 .containerBlock form > button {margin-top:15px}
 .controlContainer {padding-top:50px;text-align:center}
 .controlContainer div {padding-bottom:10px}
 .controlContainer select {padding:6px 12px;height:34px}
 .controlContainer select + button {margin-left:20px}
 
+
+/* btn */
+.btn {display:inline-block;cursor:pointer;background:#fff;border:1px solid #bbb;height:34px;padding:6px 12px;font-size:14px;line-height:18px;transition:all 0.3s ease-in-out}
+.btn.btn-default {}
+.btn.btn-default:hover {background:#eee;border-color:#bbb}
+.btn.btn-default:focus {background:#ddd;border-color:#bbb}
+.btn.btn-primary {background-color:#0084ff;border-color:#0084ff;color:#fff}
+.btn.btn-primary:hover {background-color:#006dd2;border-color:#006dd2}
+.btn.btn-primary:focus {background-color:#0155a2;border-color:#0155a2;transform:translateY(1px)}
+.btn.btn-default[disabled] {background:#fafafa!important;border-color:#ccc!important;color:#aaa}
+.btn.btn-primary[disabled] {background:#3F9DD0!important;border-color:#537FA9!important;color:#ACD3E8;box-shadow:none!important}
+
+.btn.btn-left {float:left;margin:0 5px 0 0!important}
+
+
+/* tabs */
+.tabs_container {position:fixed;left:calc(50% - 400px - 180px);width:160px;margin-top:-30px}
+.tabs_container:after {content:'';clear:both;display:table}
+.tabs_container > .tab {line-height:40px;cursor:pointer;color:#7d8798;margin:0 15px;font-size:14px}
+.tabs_container > .tab > span {position:relative;display:inline-block;line-height:24px}
+.tabs_container > .tab.active > span {color:#000}
+.tabs_container > .tab > span:before {content:'';position:absolute;height:2px;left:0;width:0;bottom:0;background:#0084ff;transition:.2s}
+.tabs_container > .tab.active > span:before,
+.tabs_container > .tab:hover > span:before {width:100%}
+.tabs_container > .tab:hover {color:#000}
+.tabs_container > .totop {position:fixed;bottom:30px;width:160px;padding:20px;line-height:20px;text-align:center;background:rgba(200, 200, 200, 0.2);font-size:25px;color:#7d8798;border-radius:3px;cursor:pointer;transition:all 0.3s ease-in-out}
+.tabs_container > .totop:hover {background:rgba(200, 200, 200, 0.4)}
+.page_container {position:relative}
+.page_container > .page {min-height:900px;padding-bottom:150px;position:relative}
+.page_container > .page:after {content:'';position:absolute;bottom:100px;border-bottom:1px solid #eee;margin:auto;left:-30px;right:-30px}
+.page_container > .page:last-child {padding-bottom:0}
+.page_container > .page:last-child:after {display:none}
+
+
+
 @media (max-width: 840px){
 #page {width:auto;min-width:0;margin:20px 20px 100px}
 }
 
-@media (max-width: 400px){
+@media (max-width: 460px){
 .containerBlock form {margin:0}
 }
 
-#waitMe_ex2_container {margin:30px 0 10px;text-align:center;border-top:1px solid #eee;border-bottom:1px solid #eee;padding:10px}
-#waitMe_ex2_container span {}
-#waitMe_ex2 {vertical-align:middle;margin-left:10px;width:34px}
-#waitMe_ex3_container {text-align:center}
-#waitMe_ex3 {background:#fafafa;padding:15px;color:#777;margin-top:5px;cursor:pointer}
+#waitMe_ex2 {width:40px;margin-right:20px;vertical-align:top}
+#waitMe_ex3 {line-height:20px;width:50%;border:1px solid #eee;padding:7px 15px;display:inline-block;margin-right:20px;vertical-align:top}
 </style>
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500">
 <link type="text/css" rel="stylesheet" href="waitMe.css">
@@ -85,111 +142,264 @@ body {background:#f1f1f1}
 <body>
 
 <div id="page">
-
-	<div id="copyrightBlock">
-		<div id="version" title="Current version/date">1.18<span>[23.09.16]</span></div>
-		<a href="https://github.com/vadimsva/waitMe/releases" id="downloadLink">Download</a>
-		<a href="https://github.com/vadimsva/waitMe" id="gitHubLink">GitHub Repo</a>
+	
+	<div id="header">
+		<div class="prjData">
+			<div class="prjVer" title="Current version/date">1.19<span>[31.10.17]</span></div>
+			<a href="https://github.com/vadimsva/waitMe/releases" class="prjDownloadLink">Download</a>
+			<a href="https://github.com/vadimsva/waitMe" class="prjGitLink">GitHub Repo</a>
+		</div>
+		<div class="prjName">waitMe</div>
+		<div class="prjDesc">jquery plugin for easy creating loading css3/images animations</div>
 	</div>
-
-	<div id="pageCaption">waitMe</div>
-	<div id="pageDesc">jquery plugin for easy creating loading css3/images animations</div>
 	
 	<div id="page_content">
 	
-		<div class="containerBlock">
-		
-			<form>
-				<label>Name</label>
-				<input type="text">
-				<label>Email</label>
-				<input type="text">
-				<label>Phone</label>
-				<input type="text">
-				<button type="button" class="btn btn-primary" id="waitMe_ex">Submit</button>
-			</form>
-			
-			<div id="waitMe_ex2_container">
-				<span>MaxSize example, click on button</span>
-				<button type="button" class="btn btn-primary" id="waitMe_ex2"></button>
-			</div>
-			
-			<div id="waitMe_ex3_container">
-				<span>Horizontal text position</span>
-				<div id="waitMe_ex3">Click to start</div>
-			</div>
-			
-			<div class="controlContainer">
-				<div>To start click Submit button</div>
-				Effect
-				<select id="waitMe_ex_effect">
-					<option>none</option>
-					<option selected>bounce</option>
-					<option>rotateplane</option>
-					<option>stretch</option>
-					<option>orbit</option>
-					<option>roundBounce</option>
-					<option>win8</option>
-					<option>win8_linear</option>
-					<option>ios</option>
-					<option>facebook</option>
-					<option>rotation</option>
-					<option>timer</option>
-					<option>pulse</option>
-					<option>progressBar</option>
-					<option>bouncePulse</option>
-					<option>img</option>
-				</select>
-				<button class="btn btn-default" id="waitMe_ex_close">STOP</button>
-			</div>
-		
-		</div>
-		
-		<div class="exampleContainer">
-			<div class="exampleCode"><pre><code>
-				<p><span class="text">$('</span><span class="tag">#container</span><span class="text">').waitMe(</span>{</p>
-				<p class="tab"><span class="key">effect</span> : <span class="val">'bounce'</span>,</p>
-				<p class="tab"><span class="key">text</span> : <span class="val">''</span>,</p>
-				<p class="tab"><span class="key">bg</span> : <span class="val">rgba(255,255,255,0.7)</span>,</p>
-				<p class="tab"><span class="key">color</span> : <span class="val">#000</span>,</p>
-				<p class="tab"><span class="key">maxSize</span> : <span class="val">''</span>,</p>
-				<p class="tab"><span class="key">textPos</span> : <span class="val">'vertical'</span>,</p>
-				<p class="tab"><span class="key">fontSize</span> : <span class="val">''</span>,</p>
-				<p class="tab"><span class="key">source</span> : <span class="val">''</span></p>
-				<p>}<span class="text">)</span>;</p>
-			</code></pre></div>
-		</div>
-		
-		<div class="containerBlock">
-			<div class="controlContainer">
-				<div>Animation during the initial page load</div>
-				Effect
-				<select id="waitMe_ex_body_effect">
-					<option selected>progress</option>
-					<option>working</option>
-					<option>img</option>
-					<option>text</option>
-				</select>
-				<button class="btn btn-primary" id="waitMe_ex_body">EXAMPLE</button>
-			</div>
-		
-		</div>
-		
-		<div class="exampleContainer">
-			<div class="exampleCode"><pre><code>
-				<p>&lt;<span class="tag">body</span> <span class="key">class</span>=<span class="val">"waitMe_body"</span>&gt;</p>
-				<p class="tab">&lt;<span class="tag">div</span> <span class="key">class</span>=<span class="val">"waitMe_container progress"</span> <span class="key">style</span>=<span class="val">"background:#fff"</span>&gt;</p>
-				<p class="tab2">&lt;<span class="tag">div</span> <span class="key">style</span>=<span class="val">"background:#000"</span>&gt;&lt;/<span class="tag">div</span>&gt;</p>
-				<p class="tab">&lt;/<span class="tag">div</span>&gt;</p>
-				<p>&lt;/<span class="tag">body</span>&gt;</p>
-			</code></pre></div>
-		</div>
+		<div class="page_container">
+			<div class="page" data-page="waitMe">
+				
+				<div class="pageCaption">waitMe</div>
+				
+				<div class="blockCaption">Documentation</div>
+				
+				<div class="docContainer">
+					<div class="docLive">
+						<div class="docTitle">Basic</div>
+					</div>
+					<div class="docCode"><pre><code>
+						<p><span class="key">$(<span class="val">'#elem'</span>).waitMe(<span class="text">{}</span>)</span> - #elem is html object, click on which causes to show waitme.</p>
+					</code></pre></div>
+				</div>
 
+				<div class="docContainer">
+					<div class="docLive">
+						<div class="docTitle">Options</div>
+					</div>
+					<div class="docCode"><pre><code>
+						<p><span class="key">effect</span> - animation effect. Use: <span class="val code">'bounce'</span> - default, <span class="val code">'none'</span>, <span class="val code">'rotateplane'</span>, <span class="val code">'stretch'</span>, <span class="val code">'orbit'</span>, <span class="val code">'roundBounce'</span>, <span class="val code">'win8'</span>, <span class="val code">'win8_linear'</span>, <span class="val code">'ios'</span>, <span class="val code">'facebook'</span>, <span class="val code">'rotation'</span>, <span class="val code">'timer'</span>, <span class="val code">'pulse'</span>, <span class="val code">'progressBar'</span>, <span class="val code">'bouncePulse'</span>, <span class="val code">'img'</span>.</p>
+						<p><span class="key">text</span> - place text under the effect. Use: <span class="val code">'text'</span>.</p>
+						<p><span class="key">bg</span> - background for container. Use: <span class="val code">'rgba(255,255,255,0.7)'</span> - default, <span class="val code">false</span>.</p>
+						<p><span class="key">color</span> - color for background animation and text. Use: <span class="val code">'#000'</span> - default, <span class="val code">['','',...]</span> - you can use multicolor for effect.</p>
+						<p><span class="key">maxSize</span> - set max size for elem animation. Use: <span class="val code">''</span> - default, <span class="val code">40</span>.</p>
+						<p><span class="key">waitTime</span> - wait time im ms to close. Use: <span class="val code">-1</span> - default, <span class="val code">3000</span>.</p>
+						<p><span class="key">textPos</span> - change text position. Use: <span class="val code">'vertical'</span> - default, <span class="val code">'horizontal'</span>.</p>
+						<p><span class="key">fontSize</span> - change font size. Use: <span class="val code">''</span> - default, <span class="val code">'18px'</span>.</p>
+						<p><span class="key">source</span> - url to image. Use: <span class="val code">''</span> - default, <span class="val code">'url'</span> - for <span class="val code">effect: 'img'</span>.</p>
+						<p><span class="key">onClose</span> - code execution after popup closed. Use: <span class="val code">function(event, el){}</span>.</p>
+					</code></pre></div>
+				</div>
+				
+				<div class="docContainer">
+					<div class="docLive">
+						<div class="docTitle">Methods</div>
+					</div>
+					<div class="docCode"><pre><code>
+						<p><span class="key">hide</span> - for close waitMe. Use: <span class="val code">$(container).waitMe("hide");</span>.</p>
+					</code></pre></div>
+				</div>
+				
+				<div class="docContainer">
+					<div class="docLive">
+						<div class="docTitle">Triggers</div>
+					</div>
+					<div class="docCode"><pre><code>
+						<p><span class="key">close</span> - execution after closed. Use: <span class="val code">$(el).on('close', function() {});</span>.</p>
+					</code></pre></div>
+				</div>
+				
+				<div class="docContainer">
+					<div class="docLive">
+						<div class="docTitle">Notes</div>
+					</div>
+					<div class="docLive">
+						<p>Don't use as element container non block elements such as table, input, textarea and etc. Use div, span or body (you may use html and it would be work as body).</p>
+					</div>
+				</div>
+
+
+				
+			<div class="blockCaption">Examples</div>
+
+			
+			<div class="exampleContainer">
+				<div class="exampleLive">
+					<div class="exampleLiveTitle">default param</div>
+					<div class="containerBlock">
+						<form>
+							<label>Name</label>
+							<input type="text">
+							<label>Email</label>
+							<input type="text">
+							<label>Phone</label>
+							<input type="text">
+							<button type="button" class="btn btn-primary" id="waitMe_ex">Submit</button>
+						</form>
+					</div>
+					<div class="controlContainer">
+						<div>To start click Submit button</div>
+						Effect
+						<select id="waitMe_ex_effect">
+							<option>none</option>
+							<option selected>bounce</option>
+							<option>rotateplane</option>
+							<option>stretch</option>
+							<option>orbit</option>
+							<option>roundBounce</option>
+							<option>win8</option>
+							<option>win8_linear</option>
+							<option>ios</option>
+							<option>facebook</option>
+							<option>rotation</option>
+							<option>timer</option>
+							<option>pulse</option>
+							<option>progressBar</option>
+							<option>bouncePulse</option>
+							<option>img</option>
+						</select>
+						<button class="btn btn-default waitMe_ex_close">STOP</button>
+					</div>
+				</div>
+				<div class="exampleCode"><pre><code>
+					<p><span class="text">$('</span><span class="tag">#container</span><span class="text">').waitMe(</span>{</p>
+					<p class="tab"><span class="key">effect</span> : <span class="val">'bounce'</span>,</p>
+					<p class="tab"><span class="key">text</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">bg</span> : <span class="val">rgba(255,255,255,0.7)</span>,</p>
+					<p class="tab"><span class="key">color</span> : <span class="val">#000</span>,</p>
+					<p class="tab"><span class="key">maxSize</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">waitTime</span> : <span class="val">-1</span>,</p>
+					<p class="tab"><span class="key">textPos</span> : <span class="val">'vertical'</span>,</p>
+					<p class="tab"><span class="key">fontSize</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">source</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">onClose</span> : <span class="val">function() {}</span></p>
+					<p>}<span class="text">)</span>;</p>
+				</code></pre></div>
+			</div>
+			
+			
+			<div class="exampleContainer">
+				<div class="exampleLive">
+					<div class="exampleLiveTitle">maxSize</div>
+					<button type="button" class="btn btn-primary" id="waitMe_ex2"></button>
+					<button type="button" class="btn btn-default waitMe_ex_close">STOP</button>
+				</div>
+				<div class="exampleCode"><pre><code>
+					<p><span class="text">$('</span><span class="tag">#container</span><span class="text">').waitMe(</span>{</p>
+					<p class="tab"><span class="key">effect</span> : <span class="val">'bounce'</span>,</p>
+					<p class="tab"><span class="key">text</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">bg</span> : <span class="val">rgba(255,255,255,0.7)</span>,</p>
+					<p class="tab"><span class="key">color</span> : <span class="val">#000</span>,</p>
+					<p class="tab"><span class="key">maxSize</span> : <span class="val">30</span>,</p>
+					<p class="tab"><span class="key">waitTime</span> : <span class="val">-1</span>,</p>
+					<p class="tab"><span class="key">textPos</span> : <span class="val">'vertical'</span>,</p>
+					<p class="tab"><span class="key">fontSize</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">source</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">onClose</span> : <span class="val">function() {}</span></p>
+					<p>}<span class="text">)</span>;</p>
+				</code></pre></div>
+			</div>
+			
+			
+			<div class="exampleContainer">
+				<div class="exampleLive">
+					<div class="exampleLiveTitle">horizontal text position</div>
+					<div id="waitMe_ex3">Click to start</div>
+					<button type="button" class="btn btn-default waitMe_ex_close">STOP</button>
+				</div>
+				<div class="exampleCode"><pre><code>
+					<p><span class="text">$('</span><span class="tag">#container</span><span class="text">').waitMe(</span>{</p>
+					<p class="tab"><span class="key">effect</span> : <span class="val">'bounce'</span>,</p>
+					<p class="tab"><span class="key">text</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">bg</span> : <span class="val">rgba(255,255,255,0.7)</span>,</p>
+					<p class="tab"><span class="key">color</span> : <span class="val">#000</span>,</p>
+					<p class="tab"><span class="key">maxSize</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">waitTime</span> : <span class="val">-1</span>,</p>
+					<p class="tab"><span class="key">textPos</span> : <span class="val">'horizontal'</span>,</p>
+					<p class="tab"><span class="key">fontSize</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">source</span> : <span class="val">''</span>,</p>
+					<p class="tab"><span class="key">onClose</span> : <span class="val">function() {}</span></p>
+					<p>}<span class="text">)</span>;</p>
+				</code></pre></div>
+			</div>
+			
+			
+			<div class="containerBlock">
+				<div class="controlContainer">
+					<div>Animation during the initial page load</div>
+					Effect
+					<select id="waitMe_ex_body_effect">
+						<option selected>progress</option>
+						<option>working</option>
+						<option>img</option>
+						<option>text</option>
+					</select>
+					<button class="btn btn-primary" id="waitMe_ex_body">EXAMPLE</button>
+				</div>
+			
+			</div>
+			
+			<div class="exampleContainer">
+				<div class="exampleLive">
+					<div class="exampleLiveTitle">progress</div>
+				</div>
+				<div class="exampleCode"><pre><code>
+					<p>&lt;<span class="tag">body</span> <span class="key">class</span>=<span class="val">"waitMe_body"</span>&gt;</p>
+					<p class="tab">&lt;<span class="tag">div</span> <span class="key">class</span>=<span class="val">"waitMe_container progress"</span> <span class="key">style</span>=<span class="val">"background:#fff"</span>&gt;</p>
+					<p class="tab2">&lt;<span class="tag">div</span> <span class="key">style</span>=<span class="val">"background:#000"</span>&gt;&lt;/<span class="tag">div</span>&gt;</p>
+					<p class="tab">&lt;/<span class="tag">div</span>&gt;</p>
+					<p>&lt;/<span class="tag">body</span>&gt;</p>
+				</code></pre></div>
+			</div>
+			<div class="exampleContainer">
+				<div class="exampleLive">
+					<div class="exampleLiveTitle">working</div>
+				</div>
+				<div class="exampleCode"><pre><code>
+					<p>&lt;<span class="tag">body</span> <span class="key">class</span>=<span class="val">"waitMe_body"</span>&gt;</p>
+					<p class="tab">&lt;<span class="tag">div</span> <span class="key">class</span>=<span class="val">"waitMe_container working"</span> <span class="key">style</span>=<span class="val">"background:#fff"</span>&gt;</p>
+					<p class="tab2">&lt;<span class="tag">div</span> <span class="key">style</span>=<span class="val">"background:#000"</span>&gt;&lt;/<span class="tag">div</span>&gt;</p>
+					<p class="tab">&lt;/<span class="tag">div</span>&gt;</p>
+					<p>&lt;/<span class="tag">body</span>&gt;</p>
+				</code></pre></div>
+			</div>
+			<div class="exampleContainer">
+				<div class="exampleLive">
+					<div class="exampleLiveTitle">img</div>
+				</div>
+				<div class="exampleCode"><pre><code>
+					<p>&lt;<span class="tag">body</span> <span class="key">class</span>=<span class="val">"waitMe_body"</span>&gt;</p>
+					<p class="tab">&lt;<span class="tag">div</span> <span class="key">class</span>=<span class="val">"waitMe_container img"</span> <span class="key">style</span>=<span class="val">"background:#fff"</span>&gt;</p>
+					<p class="tab2">&lt;<span class="tag">div</span> <span class="key">style</span>=<span class="val">"background:url('img.png')"</span>&gt;&lt;/<span class="tag">div</span>&gt;</p>
+					<p class="tab">&lt;/<span class="tag">div</span>&gt;</p>
+					<p>&lt;/<span class="tag">body</span>&gt;</p>
+				</code></pre></div>
+			</div>
+			<div class="exampleContainer">
+				<div class="exampleLive">
+					<div class="exampleLiveTitle">text</div>
+				</div>
+				<div class="exampleCode"><pre><code>
+					<p>&lt;<span class="tag">body</span> <span class="key">class</span>=<span class="val">"waitMe_body"</span>&gt;</p>
+					<p class="tab">&lt;<span class="tag">div</span> <span class="key">class</span>=<span class="val">"waitMe_container text"</span> <span class="key">style</span>=<span class="val">"background:#fff"</span>&gt;</p>
+					<p class="tab2">&lt;<span class="tag">div</span> <span class="key">style</span>=<span class="val">"color:#000"</span>&gt;Loading&lt;/<span class="tag">div</span>&gt;</p>
+					<p class="tab">&lt;/<span class="tag">div</span>&gt;</p>
+					<p>&lt;/<span class="tag">body</span>&gt;</p>
+				</code></pre></div>
+			</div>
+
+		</div>
+		
 	</div>
 		
 </div>
 
-<script src="https://cdn.jsdelivr.net/jquery/3.1.0/jquery.min.js"></script>
+<div id="footer">
+	<div class="prjCopyright">
+		<div class="prjLicense">MIT License</div>
+		<div class="prjAuthor">Developed by vadimsva</div>
+	</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
 <script src="waitMe.js"></script>
 
 <script>
@@ -200,7 +410,7 @@ $(function(){
 	$('#waitMe_ex').click(function(){
 		run_waitMe($('.containerBlock > form'), 1, current_effect);
 	});
-	$('#waitMe_ex_close').click(function(){
+	$('.waitMe_ex_close').click(function(){
 		$('.containerBlock > form').waitMe('hide');
 		$('#waitMe_ex2').waitMe('hide');
 		$('#waitMe_ex3').waitMe('hide');
@@ -236,17 +446,17 @@ $(function(){
 			fontSize = '18px';
 			break;
 		}
-		console.log(effect)
 		el.waitMe({
 			effect: effect,
 			text: text,
 			bg: 'rgba(255,255,255,0.7)',
 			color: '#000',
 			maxSize: maxSize,
+			waitTime: -1,
 			source: 'img.svg',
 			textPos: textPos,
 			fontSize: fontSize,
-			onClose: function() {}
+			onClose: function(el) {}
 		});
 	}
 	
