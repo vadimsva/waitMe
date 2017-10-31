@@ -1,5 +1,5 @@
 /*
-waitMe - 1.18 [23.09.16]
+waitMe - 1.19 [31.10.17]
 Author: vadimsva
 Github: https://github.com/vadimsva/waitMe
 */
@@ -28,6 +28,7 @@ Github: https://github.com/vadimsva/waitMe
             bg: 'rgba(255,255,255,0.7)',
             color: '#000',
 						maxSize: '',
+						waitTime: -1,
 						textPos: 'vertical',
 						fontSize: '',
             source: '',
@@ -235,11 +236,17 @@ Github: https://github.com/vadimsva/waitMe
             });
           }
 					
+					if (_options.waitTime > 0) {
+						setTimeout(function(){
+							waitMeClose();
+						}, _options.waitTime);
+					}
+					
 					elemObj.on('destroyed', function() {
 						if (_options.onClose && $.isFunction(_options.onClose)) {
-							_options.onClose();
+							_options.onClose(elem);
 						}
-						elemObj.trigger('close');
+						elemObj.trigger('close', {el: elem});
 					});
 
 					$.event.special.destroyed = {
