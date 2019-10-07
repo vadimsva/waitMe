@@ -8,6 +8,10 @@ Simple to use. Contains 14 animation effects and can use images.
 <i>Plugin works on all browsers and IE10+ (for css3 animation effects).</i>
 <br>
 
+Plugins are easy to implement for css animations and easy to include in your html and css code.
+This plugin consists various animation effects to include in your webpage codes.
+It supports and works on all browsers.
+
 Documentation
 =============
 
