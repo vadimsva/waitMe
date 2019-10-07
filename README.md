@@ -9,7 +9,7 @@ Simple to use. Contains 14 animation effects and can use images.
 <br>
 
 Plugins are easy to implement for css animations and easy to include in your html and css code.
-This plugi consists various animation effects to include in your webpage codes.
+This plugin consists various animation effects to include in your webpage codes.
 It supports and works on all browsers.
 
 Documentation
